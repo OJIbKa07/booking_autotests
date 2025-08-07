@@ -1,0 +1,67 @@
+package pages.components;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import static com.codeborne.selenide.Selenide.$;
+
+public class CalendarComponent {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+    LocalDate
+            today = LocalDate.now(),
+            checkInDate = today.plusMonths(1),
+            checkOutDate = checkInDate.plusDays(7),
+            checkInDateTaxi = today.plusDays(1),
+            checkOutDateTaxi = today.plusDays(1);
+
+    String
+            checkInStr = checkInDate.format(formatter),
+            checkOutStr = checkOutDate.format(formatter),
+            checkInTaxiStr = checkInDateTaxi.format(formatter),
+            checkOutTaxiStr = checkOutDateTaxi.format(formatter);
+
+
+    private SelenideElement calendarEl =  $("[data-testid='date-display-field-start']"),
+            dateStart = $("span[data-date='" + checkInStr + "']"),
+            dateEnd = $("span[data-date='" + checkOutStr + "']"),
+            dateStartTaxi = $("span[data-date='" + checkInTaxiStr + "']"),
+            dateEndTaxi = $("span[data-date='" + checkOutTaxiStr + "']"),
+            fieldStart = $("span[data-testid='date-display-field-start']"),
+            fieldsEnd = $("span[data-testid='date-display-field-end']"),
+            hoursOption = $("[name='hours']"),
+            minutesOption = $("[name='minutes']"),
+            taxiDateStart = $("button[data-testid='taxi-date-time-picker-form-element__button-oneway']"),
+            taxiDateEnd = $("button[data-testid='taxi-date-time-picker-form-element__button-return']");
+
+
+    public void openCalendar() {
+        calendarEl.click();
+
+    }
+
+    public void setDate() {
+        dateStart.shouldBe(Condition.visible).click();
+        dateEnd.shouldBe(Condition.visible).click();
+
+    }
+
+    public void checkDate() {
+        fieldStart.shouldHave(Condition.text(String.valueOf(checkInDate.getDayOfMonth())));
+        fieldsEnd.shouldHave(Condition.text(String.valueOf(checkOutDate.getDayOfMonth())));
+    }
+
+    public void setDateAndTime() {
+        taxiDateStart.click();
+        dateStartTaxi.shouldBe(Condition.visible).click();
+        hoursOption.selectOption("09");
+        minutesOption.selectOption("15");
+        taxiDateEnd.click();
+        dateEndTaxi.shouldBe(Condition.visible).click();
+        hoursOption.selectOption("15");
+        minutesOption.selectOption("10");
+    }
+}

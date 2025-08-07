@@ -11,7 +11,7 @@ public class TestBase {
     @BeforeAll
     static void basicBrowserSettings() {
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
-        Configuration.baseUrl = "https://www.booking.com/";
+        Configuration.baseUrl = "https://www.booking.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.browser =  System.getProperty ("browser","chrome");
         Configuration.browserVersion =  System.getProperty("browser_version", "127.0");
@@ -22,5 +22,6 @@ public class TestBase {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
+
     }
 }
