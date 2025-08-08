@@ -62,7 +62,7 @@
 <img title="Allure Overview" src="src/images/screenshot/Allure_Report.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/ResultsTest.png"> Результат успешного прогона
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/Allure.png"> Результат успешного прогона
 ### Overview
 
 <p align="center">
