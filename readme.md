@@ -11,16 +11,16 @@
 ## :computer: Используемый стек
 
 <p align="center">
-<img width="6%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg">
-<img width="6%" title="Java" src="images/logo/Java.svg">
-<img width="6%" title="Selenide" src="images/logo/Selenide.svg">
-<img width="6%" title="Selenoid" src="images/logo/Selenoid.svg">
-<img width="6%" title="Allure Report" src="images/logo/Allure_Report.svg">
-<img width="6%" title="Gradle" src="images/logo/Gradle.svg">
-<img width="6%" title="JUnit5" src="images/logo/JUnit5.svg">
-<img width="6%" title="GitHub" src="images/logo/GitHub.svg">
-<img width="6%" title="Jenkins" src="images/logo/Jenkins.svg">
-<img width="6%" title="Telegram" src="images/logo/Telegram.svg">
+<img width="6%" title="IntelliJ IDEA" src="src/images/logo/Intelij_IDEA.svg">
+<img width="6%" title="Java" src="src/images/logo/Java.svg">
+<img width="5%" title="Selenide" src="src/images/logo/Selenide.png">
+<img width="6%" title="Selenoid" src="src/images/logo/Selenoid.png">
+<img width="6%" title="Allure Report" src="src/images/logo/Allure.png">
+<img width="6%" title="Gradle" src="src/images/logo/Gradle.svg">
+<img width="6%" title="JUnit5" src="src/images/logo/JUnit5.svg">
+<img width="6%" title="GitHub" src="src/images/logo/GitHub.svg">
+<img width="6%" title="Jenkins" src="src/images/logo/Jenkins.svg">
+<img width="6%" title="Telegram" src="src/images/logo/Telegram.png">
 </p>
 
 Тесты в данном проекте написаны на языке <code>Java</code>, сборщик - <code>Gradle</code>. Так же были использованы фреймворки <code>JUnit 5</code> и [Selenide](https://selenide.org/).
@@ -49,29 +49,29 @@
 * Расширение окна браузера - <code>1920x1080</code>.
 
 
-## <img width="4%" style="vertical-align:middle" title="Jenkins" src="images/logo/Jenkins.svg"> Сборка в Jenkins
+## <img width="4%" style="vertical-align:middle" title="Jenkins" src="src/images/logo/Jenkins.svg"> Сборка в Jenkins
 <p align="center">
-<img title="Jenkins Build" src="images/screens/jenkinsBuild.png">
+<img title="Jenkins Build" src="src/images/screenshot/jenkinsBuild.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="images/logo/Allure_Report.svg"> Пример Allure-отчета
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/Allure.png"> Пример Allure-отчета
 ### Overview
 
 <p align="center">
-<img title="Allure Overview" src="images/screens/allureReportMain.png">
+<img title="Allure Overview" src="src/images/screenshot/allure_report.png">
 </p>
 
-### <img width="4%" style="vertical-align:middle" title="Telegram" src="images/logo/Telegram.svg"> Уведомления в Telegram с использованием бота
+### <img width="4%" style="vertical-align:middle" title="Telegram" src="src/images/logo/Telegram.png"> Уведомления в Telegram с использованием бота
 
 После завершения сборки специальный бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с результатом.
 
 <p align="center">
-<img width="70%" title="Telegram Notifications" src="images/screens/notificationExample.png">
+<img width="70%" title="Telegram Notifications" src="src/images/screenshot/TelegramNotifications.png">
 </p>
 
-### <img width="4%" style="vertical-align:middle" title="Selenoid" src="images/logo/Selenoid.svg"> Видео примера запуска тестов в Selenoid
+### <img width="4%" style="vertical-align:middle" title="Selenoid" src="src/images/logo/Selenoid.png"> Видео примера запуска тестов в Selenoid
 
 К каждому тесту в отчете прилагается видео прогона.
 <p align="center">
-  <img title="Selenoid Video" src="images/screens/videoExample.gif">
+  <img title="Selenoid Video" src="src/images/screenshot/videoExample.gif">
 </p>

@@ -48,9 +48,3 @@ tasks.withType(Test) {
         }
     }
 }
-
-task smoke_booking(type: Test) {
-    useJUnitPlatform {
-        includeTags("smoke")
-    }
-}
