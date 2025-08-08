@@ -5,7 +5,8 @@
 - [Запуск автотестов](#arrow_forward-запуск-автотестов)
 - [Сборка в Jenkins](#-сборка-в-jenkins)
 - [Пример Allure-отчета](#-пример-allure-отчета)
-- [Уведомления в Telegram](#-уведомления-в-telegram)
+- [Результат успешного прогона](#-результат-успешного-прогона)
+- [Уведомления в Telegram](#-уведомления-в-telegram-с-использованием-бота)
 - [Видео примера запуска тестов в Selenoid](#-видео-примера-запуска-теста-в-selenoid)
 
 ## :computer: Используемый стек
@@ -18,7 +19,7 @@
 <img width="6%" title="Allure Report" src="src/images/logo/Allure.png">
 <img width="6%" title="Gradle" src="src/images/logo/Gradle.svg">
 <img width="6%" title="JUnit5" src="src/images/logo/JUnit5.svg">
-<img width="6%" title="GitHub" src="src/images/logo/GitHub.svg">
+<img width="6%" title="GitHub" src="src/images/logo/Github.svg">
 <img width="6%" title="Jenkins" src="src/images/logo/Jenkins.svg">
 <img width="6%" title="Telegram" src="src/images/logo/Telegram.png">
 </p>
@@ -58,7 +59,14 @@
 ### Overview
 
 <p align="center">
-<img title="Allure Overview" src="src/images/screenshot/allure_report.png">
+<img title="Allure Overview" src="src/images/screenshot/Allure_Report.png">
+</p>
+
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/ResultsTest.png"> Результат успешного прогона
+### Overview
+
+<p align="center">
+<img title="Allure Overview" src="src/images/screenshot/ResultsTest.png">
 </p>
 
 ### <img width="4%" style="vertical-align:middle" title="Telegram" src="src/images/logo/Telegram.png"> Уведомления в Telegram с использованием бота
