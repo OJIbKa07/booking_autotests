@@ -7,7 +7,7 @@
 - [Пример Allure-отчета](#-пример-allure-отчета)
 - [Результат успешного прогона](#-результат-успешного-прогона)
 - [Уведомления в Telegram](#-уведомления-в-telegram-с-использованием-бота)
-- [Видео примера запуска тестов в Selenoid](#-видео-примера-запуска-теста-в-selenoid)
+- [Видео примера запуска тестов в Selenoid](#-видео-пример-запуска-тестов-в-Selenoid)
 
 ## :computer: Используемый стек
 
@@ -77,7 +77,7 @@
 <img width="70%" title="Telegram Notifications" src="src/images/screenshot/TelegramNotifications.png">
 </p>
 
-### <img width="4%" style="vertical-align:middle" title="Selenoid" src="src/images/logo/Selenoid.png"> Видео примера запуска тестов в Selenoid
+### <img width="4%" style="vertical-align:middle" title="Selenoid" src="src/images/logo/Selenoid.png"> Видео пример запуска тестов в Selenoid
 
 К каждому тесту в отчете прилагается видео прогона.
 <p align="center">
