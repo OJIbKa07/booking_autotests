@@ -13,6 +13,7 @@ public class TaxisPage {
 
     private SelenideElement
             discountWindowRu = $("button[aria-label='Скрыть меню входа в аккаунт.']"),
+            discountWindowUs = $("button[aria-label='Dismiss sign-in info.']"),
             cookieWindow = $("#onetrust-accept-btn-handler"),
             taxisNav = $("a#airport_taxis"),
             backAndForthButtton = $("div[data-testid='mfe-search-form-radio-buttons__return']"),
@@ -32,6 +33,9 @@ public class TaxisPage {
         sleep(3000);
         if (discountWindowRu.exists()) {
             discountWindowRu.click();
+        }
+        if (discountWindowUs.exists()) {
+            discountWindowUs.click();
         }
         if (cookieWindow.exists()) {
             cookieWindow.click();
@@ -72,7 +76,7 @@ public class TaxisPage {
     }
 
     public TaxisPage submit() {
-        buttonCollection.findBy(text("Найти")).click();
+        buttonCollection.findBy(text("Search")).click();
 
         return this;
     }

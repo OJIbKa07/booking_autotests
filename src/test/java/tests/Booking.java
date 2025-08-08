@@ -25,6 +25,12 @@ public class Booking extends TestBase{
     AttractionsPage attractionsPage = new AttractionsPage();
     TaxisPage taxisPage = new TaxisPage();
 
+
+    @BeforeEach
+    void addListenerAndRuCookie() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
+
     @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
@@ -32,11 +38,6 @@ public class Booking extends TestBase{
         Attach.browserConsoleLogs();
         Attach.addVideo();
         Selenide.closeWebDriver();
-    }
-
-    @BeforeEach
-    void addListener() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @Tag("Smoke")

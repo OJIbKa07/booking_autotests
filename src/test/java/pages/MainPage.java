@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import java.util.List;
 import java.util.stream.Stream;
 import data.Language;
+import org.openqa.selenium.Cookie;
 import pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
@@ -21,15 +22,16 @@ public class MainPage {
     private SelenideElement
             discountWindowRu = $("button[aria-label='Скрыть меню входа в аккаунт.']"),
             discountWindowUk = $("button[aria-label='No quiero iniciar sesión.']"),
+            discountWindowUs = $("button[aria-label='Dismiss sign-in info.']"),
             cookieWindow = $("#onetrust-accept-btn-handler"),
             languageWindow = $( "[data-testid='header-language-picker-trigger']" ),
             languagePicker = $("div#header_language_picker"),
             mainHeading = $("[data-testid='herobanner-title1']"),
-            searchTravell = $("[placeholder='Куда вы хотите поехать?']"),
+            searchTravell = $("[placeholder='Where are you going?']"),
             travelersMenu = $("button[data-testid='occupancy-config']"),
             reduceAdults = $("div[data-testid='occupancy-popup'] button[tabindex='-1']"),
-            addKids = $x("//label[text()='Детей']/following::div[contains(@class, 'e301a14002')]//button[not(@disabled) and @tabindex='-1']"),
-            ageKids = $("[aria-label='Возраст ребенка на момент отъезда']"),
+            addKids = $x("//label[text()='Children']/following::div[contains(@class, 'e301a14002')]//button[not(@disabled) and @tabindex='-1']"),
+            ageKids = $("[aria-label='Age of child at check-out']"),
             checkPets = $("[for='pets']"),
             searchResult = $("[data-testid='property-card']"),
             currencyWindow = $("button[data-testid='header-currency-picker-trigger']");
@@ -45,11 +47,11 @@ public class MainPage {
         return Stream.of(
                 Arguments.of(
                         Language.RU,
-                        List.of("Жилье", "Авиабилеты", "Аренда автомобилей", "Досуг", "Такси от/до аэропорта")
+                        List.of("Жилье", "Авиабилеты", "Авиабилеты + отели", "Аренда автомобилей", "Досуг", "Такси от/до аэропорта")
                 ),
                 Arguments.of(
                         Language.UK,
-                        List.of("Stays", "Flights", "Car rental", "Attractions", "Airport taxis")
+                        List.of("Stays", "Flights", "Flights + Hotel", "Car rental", "Activities", "Airport taxis")
                 )
         );
     }
@@ -82,6 +84,9 @@ public class MainPage {
         if (discountWindowUk.exists()) {
             discountWindowUk.click();
         }
+        if (discountWindowUs.exists()) {
+            discountWindowUs.click();
+        }
         if (cookieWindow.exists()) {
             cookieWindow.click();
         }
@@ -112,7 +117,7 @@ public class MainPage {
     }
 
     public MainPage enteringPlace() {
-        searchTravell.setValue("Швейцария");
+        searchTravell.setValue("Switzerland");
 
         return this;
     }
@@ -128,14 +133,14 @@ public class MainPage {
         travelersMenu.click();
         reduceAdults.click();
         addKids.click();
-        ageKids.selectOption("10 лет");
+        ageKids.selectOption("10 years old");
         checkPets.click();
 
         return this;
     }
 
     public MainPage checkEnteredPlace() {
-        searchTravell.shouldHave(attribute("value", "Швейцария"));;
+        searchTravell.shouldHave(attribute("value", "Switzerland"));;
 
         return this;
     }
@@ -148,18 +153,13 @@ public class MainPage {
     }
 
     public MainPage checkEnteredTravelers() {
-        travelersMenu.shouldHave(
-                text("1 взрослый"),
-                text("1 ребенок"),
-                text("Животные"),
-                text("1 номер")
-        );
+        travelersMenu.shouldHave(text("1 adult · 1 child · Pets · 1 room"));
 
         return this;
     }
 
     public MainPage submit() {
-        buttonCollection.findBy(Condition.text("Найти")).click();
+        buttonCollection.findBy(Condition.text("Search")).click();
 
         return this;
     }
@@ -184,7 +184,7 @@ public class MainPage {
     }
 
     public MainPage checkCurrency(String expectedSymbol) {
-        divCollection.findBy(Condition.text("Дома, которые нравятся гостям"))
+        divCollection.findBy(Condition.text("Homes guests love"))
                 .scrollIntoView(true);
         divHouseCollection.filter(Condition.visible)
                 .findBy(Condition.text(expectedSymbol))

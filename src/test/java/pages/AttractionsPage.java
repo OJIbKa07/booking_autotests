@@ -20,6 +20,7 @@ public class AttractionsPage {
     private SelenideElement
             attractionsNav = $("a#attractions"),
             discountWindowRu = $("button[aria-label='Скрыть меню входа в аккаунт.']"),
+            discountWindowUs = $("button[aria-label='Dismiss sign-in info.']"),
             cookieWindow = $("#onetrust-accept-btn-handler"),
             destinationInput = $("input[data-testid='search-input-field']"),
             searchResult = $("div#attr-search-results-page-main-content");
@@ -42,13 +43,16 @@ public class AttractionsPage {
         if (discountWindowRu.exists()) {
             discountWindowRu.click();
         }
+        if (discountWindowUs.exists()) {
+            discountWindowUs.click();
+        }
         if (cookieWindow.exists()) {
             cookieWindow.click();
         }
     }
 
     public AttractionsPage enteringPlace() {
-        destinationInput.sendKeys("Лондон");
+        destinationInput.sendKeys("London");
         sleep(1000);
         searchBar.first().click();
 
@@ -62,7 +66,7 @@ public class AttractionsPage {
     }
 
     public AttractionsPage checkPrices() {
-        buttonCollection.findBy(text("Проверить цены")).click();
+        buttonCollection.findBy(text("Search")).click();
 
         return this;
     }
@@ -80,7 +84,7 @@ public class AttractionsPage {
     }
 
     public AttractionsPage clickLowPrices() {
-        labelCollection.findBy(text("Самая низкая цена")).click();
+        labelCollection.findBy(text("Lowest price")).click();
 
         return this;
     }

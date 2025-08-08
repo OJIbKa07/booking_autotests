@@ -1,9 +1,7 @@
-package tests;
+package tests.notValid;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -15,10 +13,8 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class NotValidTest {
-    @Tag("There are no results during autotests")
-    @Test
-    void carRentalSearch() {
 
+    void carRentalSearch() {
         open("/");
         //pageReload();
         $("a#cars").click();
