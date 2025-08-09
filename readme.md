@@ -34,7 +34,7 @@
     <img width="6%" title="JUnit5" src="src/images/logo/JUnit5.svg">
 </a>
 <a href="https://github.com/" target="_blank">
-    <img width="6%" title="GitHub" src="src/images/logo/GitHub.svg">
+    <img width="6%" title="GitHub" src="src/images/logo/Github.svg">
 </a>
 <a href="https://www.jenkins.io/" target="_blank">
     <img width="6%" title="Jenkins" src="src/images/logo/Jenkins.svg">
@@ -88,7 +88,7 @@
 ### Overview
 [Allure  отчет](https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/1/allure/)
 <p align="center">
-    <img title="Allure Overview" src="src/images/screenshot/allure_report.png">
+    <img title="Allure Overview" src="src/images/screenshot/Allure_Report.png">
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/Allure.png"> Результат успешного прогона
