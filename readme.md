@@ -12,16 +12,36 @@
 ## :computer: Используемый стек
 
 <p align="center">
-<img width="6%" title="IntelliJ IDEA" src="src/images/logo/Intelij_IDEA.svg">
-<img width="6%" title="Java" src="src/images/logo/Java.svg">
-<img width="5%" title="Selenide" src="src/images/logo/Selenide.png">
-<img width="6%" title="Selenoid" src="src/images/logo/Selenoid.png">
-<img width="6%" title="Allure Report" src="src/images/logo/Allure.png">
-<img width="6%" title="Gradle" src="src/images/logo/Gradle.svg">
-<img width="6%" title="JUnit5" src="src/images/logo/JUnit5.svg">
-<img width="6%" title="GitHub" src="src/images/logo/Github.svg">
-<img width="6%" title="Jenkins" src="src/images/logo/Jenkins.svg">
-<img width="6%" title="Telegram" src="src/images/logo/Telegram.png">
+<a href="https://www.jetbrains.com/idea/" target="_blank">
+    <img width="6%" title="IntelliJ IDEA" src="src/images/logo/Intelij_IDEA.svg">
+</a>
+<a href="https://www.java.com/" target="_blank">
+    <img width="6%" title="Java" src="src/images/logo/Java.svg">
+</a>
+<a href="https://selenide.org/" target="_blank">
+    <img width="5%" title="Selenide" src="src/images/logo/Selenide.png">
+</a>
+<a href="https://selenoid.autotests.cloud/" target="_blank">
+    <img width="6%" title="Selenoid" src="src/images/logo/Selenoid.png">
+</a>
+<a href="https://allurereport.org/" target="_blank">
+    <img width="6%" title="Allure Report" src="src/images/logo/Allure.png">
+</a>
+<a href="https://gradle.org/" target="_blank">
+    <img width="6%" title="Gradle" src="src/images/logo/Gradle.svg">
+</a>
+<a href="https://junit.org/junit5/" target="_blank">
+    <img width="6%" title="JUnit5" src="src/images/logo/JUnit5.svg">
+</a>
+<a href="https://github.com/" target="_blank">
+    <img width="6%" title="GitHub" src="src/images/logo/Github.svg">
+</a>
+<a href="https://www.jenkins.io/" target="_blank">
+    <img width="6%" title="Jenkins" src="src/images/logo/Jenkins.svg">
+</a>
+<a href="https://telegram.org/" target="_blank">
+    <img width="6%" title="Telegram" src="src/images/logo/Telegram.png">
+</a>
 </p>
 
 Тесты в данном проекте написаны на языке <code>Java</code>, сборщик - <code>Gradle</code>. Так же были использованы фреймворки <code>JUnit 5</code> и [Selenide](https://selenide.org/).
@@ -39,9 +59,17 @@
 
 ### Запуск тестов из терминала
 ```
-./gradlew test
+./gradlew clean test
 ```
 При выполнении данной команды в терминале IDE тесты запустятся удаленно в <code>Selenoid</code>.
+
+<code>clean</code> — удаляет каталог build/ в проекте (все скомпилированные классы, отчёты, кэш тестов, временные файлы);
+
+<code>test</code> — запускает задачу тестирования Gradle, которая:
+
+- компилирует тесты и основной код;
+- запускает тесты (JUnit, TestNG и т.д.);
+- формирует отчёты (например, `build/reports/tests/test/index.html`).
 
 ### Установленная конфигурация
 
@@ -52,14 +80,18 @@
 
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="src/images/logo/Jenkins.svg"> Сборка в Jenkins
 <p align="center">
-<img title="Jenkins Build" src="src/images/screenshot/jenkinsBuild.png">
+<a href="https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/1/" target="_blank">
+    <img title="Jenkins Build" src="src/images/screenshot/jenkinsBuild.png">
+</a>
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/Allure.png"> Пример Allure-отчета
 ### Overview
 
 <p align="center">
-<img title="Allure Overview" src="src/images/screenshot/Allure_Report.png">
+<a href="https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/1/allure/" target="_blank">
+    <img title="Allure Overview" src="src/images/screenshot/Allure_Report.png">
+</a>
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/Allure.png"> Результат успешного прогона

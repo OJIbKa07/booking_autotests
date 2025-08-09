@@ -4,12 +4,11 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import data.Language;
+import io.qameta.allure.Step;
 import org.junit.jupiter.params.provider.Arguments;
 
 import java.util.List;
 import java.util.stream.Stream;
-import data.Language;
-import org.openqa.selenium.Cookie;
 import pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
@@ -64,18 +63,21 @@ public class MainPage {
         );
     }
 
+    @Step("Выбрать языке {language}")
     public MainPage languageSelection(Language language) {
         divSpanCollection.findBy(text(language.country)).click();
 
         return this;
     }
 
+    @Step("Проверить, что язык в заголовке соответствует {language}")
     public MainPage checkHeadingLanguage(Language language) {
         mainHeading.shouldHave(text(language.description));
 
         return this;
     }
 
+    @Step("Закрыть баннеры и куки при наличии")
     public void pageReload() {
         sleep(3000);
         if (discountWindowRu.exists()) {
@@ -92,36 +94,42 @@ public class MainPage {
         }
     }
 
+    @Step("Открыть главную страницу")
     public MainPage openPage() {
         open("/");
 
         return this;
     }
 
+    @Step("Открыть меню смены языка страницы")
     public MainPage openLanguageMenu() {
         languageWindow.click();
 
         return this;
     }
 
+    @Step("Проверить, что меню выбора языка видимо")
     public MainPage languagePickerVisible() {
         languagePicker.click();
 
         return this;
     }
 
+    @Step("Проверить, что текст кнопок навигации соответствует выбранному языку")
     public MainPage checkNavButtonsLanguage(List<String> expectedButtons) {
         navButtons.shouldHave(texts(expectedButtons));
 
         return this;
     }
 
+    @Step("Ввести место путешествия")
     public MainPage enteringPlace() {
         searchTravell.setValue("Switzerland");
 
         return this;
     }
 
+    @Step("Выбрать дату в календаре")
     public MainPage enteringDate() {
         calendarComponent.openCalendar();
         calendarComponent.setDate();
@@ -129,6 +137,7 @@ public class MainPage {
         return this;
     }
 
+    @Step("Ввести количество путешественников")
     public MainPage enteringNumberOfTravelers() {
         travelersMenu.click();
         reduceAdults.click();
@@ -139,43 +148,49 @@ public class MainPage {
         return this;
     }
 
+    @Step("Проверить, что место путешествия соответствует выбранному")
     public MainPage checkEnteredPlace() {
         searchTravell.shouldHave(attribute("value", "Switzerland"));;
 
         return this;
     }
 
-
+    @Step("Проверить, что дата соответствует введенной =")
     public MainPage checkEnteredDate() {
         calendarComponent.checkDate();
 
         return this;
     }
 
+    @Step("Проверить, что количество путешественников соответствует введенным данным")
     public MainPage checkEnteredTravelers() {
         travelersMenu.shouldHave(text("1 adult · 1 child · Pets · 1 room"));
 
         return this;
     }
 
+    @Step("Поиск результатов")
     public MainPage submit() {
         buttonCollection.findBy(Condition.text("Search")).click();
 
         return this;
     }
 
+    @Step("Проверить, что окно с результатами появилось")
     public MainPage checkSearchResult() {
         searchResult.should(appear);
 
         return this;
     }
 
+    @Step("Открыть меню выбора валюты")
     public MainPage openCurrencyWindow() {
         currencyWindow.shouldBe(Condition.visible).click();
 
         return this;
     }
 
+    @Step("Выбрать валюту {currencyCode}")
     public MainPage chooseCurrency(String currencyCode) {
         currencyCollection.findBy(Condition.text(currencyCode))
                 .click();
@@ -183,6 +198,7 @@ public class MainPage {
         return this;
     }
 
+    @Step("Проверить, что валюта на страницу соответствует {expectedSymbol}")
     public MainPage checkCurrency(String expectedSymbol) {
         divCollection.findBy(Condition.text("Homes guests love"))
                 .scrollIntoView(true);

@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.Condition.text;
@@ -29,6 +30,7 @@ public class TaxisPage {
             buttonCollection = $$("button");
 
 
+    @Step("Закрыть баннеры и куки при наличии")
     public void pageReload() {
         sleep(3000);
         if (discountWindowRu.exists()) {
@@ -42,18 +44,21 @@ public class TaxisPage {
         }
     }
 
+    @Step("Открыть раздел вызова такси")
     public TaxisPage openTaxisPage() {
         taxisNav.click();
 
         return this;
     }
 
+    @Step("Активировать кнопку Туда и обратно")
     public TaxisPage activeBackAndForthButton() {
         backAndForthButtton.click();
 
         return this;
     }
 
+    @Step("Ввести место куда приедет такси")
     public TaxisPage enteringPlace () {
         whereFromPlace.setValue("Римский железнодорожный вокзал Тибуртина");
         whereFromCollection.first().click();
@@ -63,24 +68,28 @@ public class TaxisPage {
         return this;
     }
 
+    @Step("Ввести дату заказа такси")
     public TaxisPage enteringDateAndTime() {
         calendarComponent.setDateAndTime();
 
         return this;
     }
 
+    @Step("Ввести количество пассажиров")
     public TaxisPage setPassengers() {
         countPassengers.selectOption("3");
 
         return this;
     }
 
+    @Step("Поиск такси")
     public TaxisPage submit() {
         buttonCollection.findBy(text("Search")).click();
 
         return this;
     }
 
+    @Step("Проверить наличие капчи на странице")
     public TaxisPage checkCaptcha() {
         captchaContainer.shouldBe(Condition.visible);
 

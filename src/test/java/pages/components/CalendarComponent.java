@@ -2,6 +2,7 @@ package pages.components;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -38,22 +39,26 @@ public class CalendarComponent {
             taxiDateEnd = $("button[data-testid='taxi-date-time-picker-form-element__button-return']");
 
 
+    @Step("Открыть календарь")
     public void openCalendar() {
         calendarEl.click();
 
     }
 
+    @Step("Ввести дату")
     public void setDate() {
         dateStart.shouldBe(Condition.visible).click();
         dateEnd.shouldBe(Condition.visible).click();
 
     }
 
+    @Step("Проверить введенную дату")
     public void checkDate() {
         fieldStart.shouldHave(Condition.text(String.valueOf(checkInDate.getDayOfMonth())));
         fieldsEnd.shouldHave(Condition.text(String.valueOf(checkOutDate.getDayOfMonth())));
     }
 
+    @Step("Присвоить дату и время")
     public void setDateAndTime() {
         taxiDateStart.click();
         dateStartTaxi.shouldBe(Condition.visible).click();

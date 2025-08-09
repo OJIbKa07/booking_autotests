@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import pages.components.CalendarComponent;
 
@@ -31,13 +32,14 @@ public class AttractionsPage {
             cardCollection = $$("[data-testid*='card']"),
             labelCollection = $$("label");
 
-
+    @Step("Открыть раздел выбора досуга")
     public AttractionsPage openAttractionsPage() {
         attractionsNav.click();
 
         return this;
     }
 
+    @Step("Закрыть баннеры и куки при наличии")
     public void pageReload() {
         sleep(3000);
         if (discountWindowRu.exists()) {
@@ -51,6 +53,7 @@ public class AttractionsPage {
         }
     }
 
+    @Step("Ввести место, где планируется искать досуг")
     public AttractionsPage enteringPlace() {
         destinationInput.sendKeys("London");
         sleep(1000);
@@ -59,36 +62,42 @@ public class AttractionsPage {
         return this;
     }
 
+    @Step("Ввести дату")
     public AttractionsPage enteringDate() {
         calendarComponent.setDate();
 
         return this;
     }
 
+    @Step("Поиск результатов")
     public AttractionsPage checkPrices() {
         buttonCollection.findBy(text("Search")).click();
 
         return this;
     }
 
+    @Step("Проверить, что меню с результатами появилось")
     public AttractionsPage checkPageResults() {
         searchResult.should(appear);
 
         return this;
     }
 
+    @Step("Проверить, что карточки с результатами появились")
     public AttractionsPage checkCardResults() {
         cardCollection.first().should(appear);
 
         return this;
     }
 
+    @Step("Отсортировать цены по возрастанию")
     public AttractionsPage clickLowPrices() {
         labelCollection.findBy(text("Lowest price")).click();
 
         return this;
     }
 
+    @Step("Проверить, что цены отсортированы по возрастанию")
     public AttractionsPage checkSort() {
         List<Integer> prices = $$("[data-testid='activity-card']")
                 .filter(Condition.visible)

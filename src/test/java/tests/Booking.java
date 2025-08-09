@@ -25,144 +25,96 @@ public class Booking extends TestBase{
     AttractionsPage attractionsPage = new AttractionsPage();
     TaxisPage taxisPage = new TaxisPage();
 
-
-    @BeforeEach
-    void addListenerAndRuCookie() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
-
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-        Selenide.closeWebDriver();
-    }
-
     @Tag("Smoke")
     @MethodSource("pages.MainPage#successfulLanguageChange")
     @ParameterizedTest
-    void successfulLanguageChange(Language language, List<String> expectedButtons) {
-        step("Открываем главную страницу и закрываем баннеры", () -> {
-            mainPage.openPage().pageReload();
-        });
-        step("Открываем меню выбора языка", () -> {
-            mainPage.openLanguageMenu();
-        });
-        step("Проверяем, что меню языков видимо на странице", () -> {
-            mainPage.languagePickerVisible();
-        });
-        step("Кликаем по языку {language}", () -> {
-            mainPage.languageSelection(language).pageReload();
-        });
-        step("Проверяем, что язык основного заголовка соответствует {language}", () -> {
-            mainPage.checkHeadingLanguage(language);
-        });
-        step("Проверяем, что язык кнопок навигации соответствует {language}", () -> {
-            mainPage.checkNavButtonsLanguage(expectedButtons);
-      });
+    void successfulLanguageChangeTest(Language language, List<String> expectedButtons) {
+        mainPage
+                .openPage()
+                .pageReload();
+        mainPage
+                .openLanguageMenu()
+                .languagePickerVisible()
+                .languageSelection(language)
+                .pageReload();
+        mainPage
+                .checkHeadingLanguage(language)
+                .checkNavButtonsLanguage(expectedButtons);
     }
 
     @Tag("Smoke")
     @Test
-    void housingSearch() {
-        step("Открываем главную страницу и закрываем баннеры", () -> {
-            mainPage.openPage().pageReload();
-        });
-        step("Заполняем форму куда хотим поехать", () -> {
-            mainPage.enteringPlace()
-                    .enteringDate()
-                    .enteringNumberOfTravelers();
-        });
-        step("Проверяем корректность заполненной формы", () -> {
-            mainPage.checkEnteredPlace()
-                    .checkEnteredDate()
-                    .checkEnteredTravelers();
-        });
-        step("Отправка формы", () -> {
-            mainPage.submit();
-        });
-        step("Проверяем корректность заполненной формы после ее отправки", () -> {
-            mainPage.checkEnteredPlace()
-                    .checkEnteredDate()
-                    .checkEnteredTravelers();
-        });
-        step("Проверяем, что появилось окно с результатами", () -> {
-            mainPage.checkSearchResult();
-        });
+    void housingSearchTest() {
+        mainPage
+                .openPage()
+                .pageReload();
+        mainPage
+                .enteringPlace()
+                .enteringDate()
+                .enteringNumberOfTravelers()
+                .checkEnteredPlace()
+                .checkEnteredDate()
+                .checkEnteredTravelers()
+                .submit()
+                .checkEnteredPlace()
+                .checkEnteredDate()
+                .checkEnteredTravelers()
+                .checkSearchResult();
     }
 
     @Tag("Smoke")
     @Test
-    void leisureOptions() {
-        step("Открываем главную страницу и закрываем баннеры", () -> {
-            mainPage.openPage().pageReload();
-        });
-        step("Переходим на страницу выбора вариантов досуга и закрываем баннеры", () -> {
-            attractionsPage.openAttractionsPage().pageReload();
-        });
-        step("Заполняем форму выбора досуга", () -> {
-            attractionsPage.enteringPlace().enteringDate();
-        });
-        step("Отправляем заполненную форму", () -> {
-            attractionsPage.checkPrices();
-        });
-        step("Проверяем, что окно с результатами появилось", () -> {
-            attractionsPage.checkPageResults();
-        });
-        step("Проверяем, что карточки предложений появились", () -> {
-            attractionsPage.checkCardResults();
-        });
-        step("Сортируем цены по возрастанию", () -> {
-            attractionsPage.clickLowPrices();
-        });
-        step("Проверяем, что окно с результатами появилось после сортировки", () -> {
-            attractionsPage.clickLowPrices();
-        });
-        step("Проверяем, что цены отсортированы по возрастанию", () -> {
-            attractionsPage.checkSort();
-        });
+    void leisureOptionsTest() {
+        mainPage
+                .openPage()
+                .pageReload();
+        attractionsPage
+                .openAttractionsPage()
+                .pageReload();
+        attractionsPage
+                .openAttractionsPage()
+                .pageReload();
+        attractionsPage
+                .enteringPlace()
+                .enteringDate()
+                .checkPrices()
+                .checkPageResults()
+                .checkCardResults()
+                .clickLowPrices()
+                .clickLowPrices()
+                .checkSort();
     }
 
     @Tag("Smoke")
     @Test
-    void orderingTaxiHumanCheck() {
-        step("Открываем главную страницу и закрываем баннеры", () -> {
-            mainPage.openPage().pageReload();
-        });
-        step("Переходим на страницу выбора вариантов досуга и закрываем баннеры", () -> {
-            taxisPage.openTaxisPage().pageReload();
-        });
-        step("Заполняем форму заказа такси", () -> {
-            taxisPage.activeBackAndForthButton()
-                    .enteringPlace()
-                    .enteringDateAndTime()
-                    .setPassengers();
-        });
-        step("Отправка формы", () -> {
-            taxisPage.submit();
-        });
-        step("Проверяем, что появилась проверка на робота", () -> {
-            taxisPage.checkCaptcha();
-        });
+    void orderingTaxiHumanCheckTest() {
+        mainPage
+                .openPage()
+                .pageReload();
+        taxisPage
+                .openTaxisPage()
+                .pageReload();
+        taxisPage
+                .activeBackAndForthButton()
+                .enteringPlace()
+                .enteringDateAndTime()
+                .setPassengers()
+                .submit()
+                .checkCaptcha();
     }
 
     @ParameterizedTest
     @MethodSource("pages.MainPage#currencyDataProvider")
     void changeCurrencyTest(String currencyCode, String expectedSymbol) {
-        step("Открываем главную страницу и закрываем баннеры", () -> {
-            mainPage.openPage().pageReload();
-        });
-        step("Открываем меню выбора валюты", () -> {
-            mainPage.openCurrencyWindow();
-        });
-        step("Выбираем валюту и закрываем баннеры", () -> {
-            mainPage.chooseCurrency(currencyCode).pageReload();
-        });
-        step("Проверяем, что символ валюты {expectedSymbol} соответствует {currencyCode}", () -> {
-            mainPage.checkCurrency(expectedSymbol);
-        });
+        mainPage
+                .openPage()
+                .pageReload();
+        mainPage
+                .openCurrencyWindow()
+                .chooseCurrency(currencyCode)
+                .pageReload();
+        mainPage
+                .checkCurrency(expectedSymbol);
     }
 
 }
