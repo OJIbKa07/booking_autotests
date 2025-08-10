@@ -78,27 +78,27 @@
 * Расширение окна браузера - <code>1920x1080</code>.
 
 
-## <img width="4%" style="vertical-align:middle" title="Jenkins" src="src/images/logo/Jenkins.svg"> Сборка в Jenkins
+## <img width="4%" style="vertical-align:middle" title="Jenkins" src="images/logo/Jenkins.svg"> Сборка в Jenkins
 [Сборка в Jenkins](https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/1/)
 <p align="center">
     <img title="Jenkins Build" src="images/screenshot/jenkinsBuild.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/Allure.png"> Пример Allure-отчета
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="images/logo/Allure.png"> Пример Allure-отчета
 ### Overview
 [Allure  отчет](https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/1/allure/)
 <p align="center">
     <img title="Allure Overview" src="images/screenshot/Allure_Report.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/Allure.png"> Результат успешного прогона
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="images/logo/Allure.png"> Результат успешного прогона
 ### Overview
 
 <p align="center">
 <img title="Allure Overview" src="images/screenshot/ResultsTest.png">
 </p>
 
-### <img width="4%" style="vertical-align:middle" title="Telegram" src="src/images/logo/Telegram.png"> Уведомления в Telegram с использованием бота
+### <img width="4%" style="vertical-align:middle" title="Telegram" src="images/logo/Telegram.png"> Уведомления в Telegram с использованием бота
 
 После завершения сборки специальный бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с результатом.
 
@@ -106,7 +106,7 @@
 <img width="70%" title="Telegram Notifications" src="images/screenshot/TelegramNotifications.png">
 </p>
 
-### <img width="4%" style="vertical-align:middle" title="Selenoid" src="src/images/logo/Selenoid.png"> Видео пример запуска тестов в Selenoid
+### <img width="4%" style="vertical-align:middle" title="Selenoid" src="images/logo/Selenoid.png"> Видео пример запуска тестов в Selenoid
 
 К каждому тесту в отчете прилагается видео прогона.
 <p align="center">
