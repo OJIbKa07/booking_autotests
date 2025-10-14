@@ -59,10 +59,10 @@ public class TaxisPage {
     }
 
     @Step("Ввести место куда приедет такси")
-    public TaxisPage enteringPlace () {
-        whereFromPlace.setValue("Римский железнодорожный вокзал Тибуртина");
+    public TaxisPage enteringPlace (String whereFrom, String whereIs) {
+        whereFromPlace.setValue(whereFrom);
         whereFromCollection.first().click();
-        wherePlace.setValue("Аэропорт Рим Фьюмичино");
+        wherePlace.setValue(whereIs);
         whereCollection.first().click();
 
         return this;
@@ -76,9 +76,8 @@ public class TaxisPage {
     }
 
     @Step("Ввести количество пассажиров")
-    public TaxisPage setPassengers() {
-        countPassengers.selectOption("3");
-
+    public TaxisPage setPassengers(int count) {
+        countPassengers.selectOption(count);
         return this;
     }
 

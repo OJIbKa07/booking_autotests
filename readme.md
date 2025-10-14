@@ -5,6 +5,8 @@
 - [Запуск автотестов](#arrow_forward-запуск-автотестов)
 - [Сборка в Jenkins](#-сборка-в-jenkins)
 - [Пример Allure-отчета](#-пример-allure-отчета)
+- [Интеграция Allure Testops](#-интеграция-allure-testops)
+- [Интеграция Jira](#-интеграция-jira)
 - [Результат успешного прогона](#-результат-успешного-прогона)
 - [Уведомления в Telegram](#-уведомления-в-telegram-с-использованием-бота)
 - [Видео примера запуска тестов в Selenoid](#-видео-пример-запуска-тестов-в-Selenoid)
@@ -25,7 +27,10 @@
     <img width="6%" title="Selenoid" src="src/images/logo/Selenoid.png">
 </a>
 <a href="https://allurereport.org/" target="_blank">
-    <img width="6%" title="Allure Report" src="src/images/logo/Allure.png">
+    <img width="6%" title="Allure Report" src="src/images/logo/allure_report.png">
+</a>
+<a href="https://qameta.io/" target="_blank">
+    <img width="6%" title="Allure Test Ops" src="src/images/logo/allure_testops.png">
 </a>
 <a href="https://gradle.org/" target="_blank">
     <img width="6%" title="Gradle" src="src/images/logo/Gradle.svg">
@@ -41,6 +46,8 @@
 </a>
 <a href="https://telegram.org/" target="_blank">
     <img width="6%" title="Telegram" src="src/images/logo/Telegram.png">
+</a>
+<a href="https://www.atlassian.com/software/jira"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/> 
 </a>
 </p>
 
@@ -84,18 +91,22 @@
     <img title="Jenkins Build" src="src/images/screenshot/jenkinsBuild.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/Allure.png"> Пример Allure-отчета
-### Overview
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_report.png"> Пример Allure-отчета
 [Allure  отчет](https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/1/allure/)
 <p align="center">
     <img title="Allure Overview" src="src/images/screenshot/Allure_Report.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/Allure.png"> Результат успешного прогона
-### Overview
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_report.png"> Результат успешного прогона
 
 <p align="center">
 <img title="Allure Overview" src="src/images/screenshot/ResultsTest.png">
+</p>
+
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_testops.png"> Интеграция с Allure Test Ops
+
+<p align="center">
+<img title="" src="src/images/screenshot/ResultsTest.png">
 </p>
 
 ### <img width="4%" style="vertical-align:middle" title="Telegram" src="src/images/logo/Telegram.png"> Уведомления в Telegram с использованием бота

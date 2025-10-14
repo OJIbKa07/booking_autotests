@@ -54,8 +54,9 @@ public class AttractionsPage {
     }
 
     @Step("Ввести место, где планируется искать досуг")
-    public AttractionsPage enteringPlace() {
-        destinationInput.sendKeys("London");
+    public AttractionsPage enteringPlace(String place) {
+        destinationInput.clear();
+        destinationInput.sendKeys(place);
         sleep(1000);
         searchBar.first().click();
 

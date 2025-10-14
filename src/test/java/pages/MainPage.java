@@ -7,13 +7,16 @@ import data.Language;
 import io.qameta.allure.Step;
 import org.junit.jupiter.params.provider.Arguments;
 
+
 import java.util.List;
 import java.util.stream.Stream;
+
 import pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+
 
 public class MainPage {
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -30,17 +33,31 @@ public class MainPage {
             travelersMenu = $("button[data-testid='occupancy-config']"),
             reduceAdults = $("div[data-testid='occupancy-popup'] button[tabindex='-1']"),
             addKids = $x("//label[text()='Children']/following::div[contains(@class, 'e301a14002')]//button[not(@disabled) and @tabindex='-1']"),
-            ageKids = $("[aria-label='Age of child at check-out']"),
+            ageKids = $("[aria-label='Age of child 1 on check-out date']"),
             checkPets = $("[for='pets']"),
             searchResult = $("[data-testid='property-card']"),
-            currencyWindow = $("button[data-testid='header-currency-picker-trigger']");
+            currencyWindow = $("button[data-testid='header-currency-picker-trigger']"),
+            helpCenterLink = $("[data-testid='header-help-center']"),
+            popupLink = $("div[data-testid='wishlist-popover-content'] a[aria-label='Saved to: My next trip']");
     private ElementsCollection
-            divSpanCollection = $$("div span"),
+            languageCollection = $$("#header_language_picker span"),
             navButtons = $$("[data-testid='header-xpb'] a"),
             buttonCollection = $$("button"),
             currencyCollection = $$("button[data-testid='selection-item']"),
             divCollection = $$("div"),
-            divHouseCollection = $$("div.e7addce19e.f546354b44");
+            divHouseCollection = $$("div.e7addce19e.f546354b44"),
+            sections = $$("div[data-testid='component-tracker']"),
+            subsectionDealsWeekend = $$("ul[aria-label='Deals for the weekend'] li");
+    private final String
+            buttonSearchName = "Search",
+            headerHome = "Homes guests love",
+            trevelersCount = "1 adult · 1 child · Pets · 1 room",
+            sectionName = "Deals for the weekend",
+            wishlistButtonLocator = "button[data-testid='wishlist-button']",
+            cardTitleLocator = "h3";
+    private SelenideElement savedCard,savedCardNameTag;
+    private String savedCardName;
+    private SelenideElement wishlistButton, section;
 
     static Stream<Arguments> successfulLanguageChange() {
         return Stream.of(
@@ -63,9 +80,9 @@ public class MainPage {
         );
     }
 
-    @Step("Выбрать языке {language}")
+    @Step("Выбрать язык {language}")
     public MainPage languageSelection(Language language) {
-        divSpanCollection.findBy(text(language.country)).click();
+        languageCollection.findBy(text(language.country)).click();
 
         return this;
     }
@@ -80,6 +97,9 @@ public class MainPage {
     @Step("Закрыть баннеры и куки при наличии")
     public void pageReload() {
         sleep(3000);
+        if (cookieWindow.exists()) {
+            cookieWindow.click();
+        }
         if (discountWindowRu.exists()) {
             discountWindowRu.click();
         }
@@ -89,14 +109,11 @@ public class MainPage {
         if (discountWindowUs.exists()) {
             discountWindowUs.click();
         }
-        if (cookieWindow.exists()) {
-            cookieWindow.click();
-        }
     }
 
     @Step("Открыть главную страницу")
     public MainPage openPage() {
-        open("/");
+        open("");
 
         return this;
     }
@@ -123,8 +140,8 @@ public class MainPage {
     }
 
     @Step("Ввести место путешествия")
-    public MainPage enteringPlace() {
-        searchTravell.setValue("Switzerland");
+    public MainPage enteringPlace(String place) {
+        searchTravell.setValue(place);
 
         return this;
     }
@@ -138,24 +155,24 @@ public class MainPage {
     }
 
     @Step("Ввести количество путешественников")
-    public MainPage enteringNumberOfTravelers() {
+    public MainPage enteringNumberOfTravelers(String age) {
         travelersMenu.click();
         reduceAdults.click();
         addKids.click();
-        ageKids.selectOption("10 years old");
+        ageKids.selectOption(age);
         checkPets.click();
 
         return this;
     }
 
     @Step("Проверить, что место путешествия соответствует выбранному")
-    public MainPage checkEnteredPlace() {
-        searchTravell.shouldHave(attribute("value", "Switzerland"));;
+    public MainPage checkEnteredPlace(String place) {
+        searchTravell.shouldHave(attribute("value", place));;
 
         return this;
     }
 
-    @Step("Проверить, что дата соответствует введенной =")
+    @Step("Проверить, что дата соответствует введенной")
     public MainPage checkEnteredDate() {
         calendarComponent.checkDate();
 
@@ -164,14 +181,14 @@ public class MainPage {
 
     @Step("Проверить, что количество путешественников соответствует введенным данным")
     public MainPage checkEnteredTravelers() {
-        travelersMenu.shouldHave(text("1 adult · 1 child · Pets · 1 room"));
+        travelersMenu.shouldHave(text(trevelersCount));
 
         return this;
     }
 
     @Step("Поиск результатов")
     public MainPage submit() {
-        buttonCollection.findBy(Condition.text("Search")).click();
+        buttonCollection.findBy(Condition.text(buttonSearchName)).click();
 
         return this;
     }
@@ -200,7 +217,7 @@ public class MainPage {
 
     @Step("Проверить, что валюта на страницу соответствует {expectedSymbol}")
     public MainPage checkCurrency(String expectedSymbol) {
-        divCollection.findBy(Condition.text("Homes guests love"))
+        divCollection.findBy(Condition.text(headerHome))
                 .scrollIntoView(true);
         divHouseCollection.filter(Condition.visible)
                 .findBy(Condition.text(expectedSymbol))
@@ -209,5 +226,53 @@ public class MainPage {
         return this;
     }
 
+    @Step("Открыть страницу Центр помощи")
+    public MainPage openHelpCenter() {
+        helpCenterLink.shouldBe(visible).click();
 
+        return this;
+    }
+
+
+    @Step("Скроллим до блока с текстом: {sectionName}")
+    public MainPage scrollToDealsForWeekends() {
+        section = sections.findBy(Condition.text(sectionName));
+
+        section.scrollIntoView(true).shouldBe(visible);
+
+        return this;
+    }
+
+    @Step("Находим первую карточку для добавления в избранное")
+    public MainPage findFavoritesAndSave() {
+        savedCard = subsectionDealsWeekend.first();
+
+        savedCardNameTag = savedCard.$(cardTitleLocator);
+        savedCardName = savedCardNameTag.getText();
+        wishlistButton = savedCard.$(wishlistButtonLocator);
+
+        return this;
+    }
+
+
+    @Step("Добавляем карточку в избранное")
+    public MainPage addToFavorites() {
+        wishlistButton.click();
+
+        return this;
+    }
+
+    @Step("Переходим на страницу избранного")
+    public MainPage goToFavorites() {
+        popupLink.shouldBe(Condition.visible)
+                .click();
+        switchTo().window(1);
+
+        return this;
+    }
+
+    @Step("Получаем название сохраненной карточки")
+    public String getSavedCardName() {
+        return savedCardName;
+    }
 }
