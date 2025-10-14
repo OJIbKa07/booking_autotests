@@ -12,16 +12,13 @@ public class ProjectConfiguration {
 
     public static void configure() {
 
-        Configuration.baseUrl = config.baseUrl();
-        Configuration.browser = config.browser();
-        Configuration.browserSize = config.browserSize();
+        Configuration.baseUrl = System.getProperty("baseUrl", config.baseUrl());
+        Configuration.browser = System.getProperty("browser", config.browser());
+        Configuration.browserVersion = System.getProperty("browserVersion", config.browserVersion());
+        Configuration.browserSize = System.getProperty("browserSize", config.browserSize());
 
-        System.out.println("ProjectConfiguration.configure() called");
-        System.out.println("Base URL: " + Configuration.baseUrl);
-        System.out.println("Browser: " + Configuration.browser);
-        System.out.println("Browser size: " + Configuration.browserSize);
-
-        String remoteUrl = config.remoteWebDriverUrl();
+        String remoteUrl = System.getProperty("remoteWebDriverUrl", config.remoteWebDriverUrl());
+        
         if (!Strings.isNullOrEmpty(remoteUrl)) {
             Configuration.remote = remoteUrl;
             Configuration.browserVersion = config.browserVersion();
