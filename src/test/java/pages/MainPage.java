@@ -97,9 +97,6 @@ public class MainPage {
     @Step("Закрыть баннеры и куки при наличии")
     public void pageReload() {
         sleep(3000);
-        if (cookieWindow.exists()) {
-            cookieWindow.click();
-        }
         if (discountWindowRu.exists()) {
             discountWindowRu.click();
         }
@@ -108,6 +105,9 @@ public class MainPage {
         }
         if (discountWindowUs.exists()) {
             discountWindowUs.click();
+        }
+        if (cookieWindow.exists()) {
+            cookieWindow.click();
         }
     }
 

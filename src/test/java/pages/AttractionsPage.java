@@ -22,7 +22,7 @@ public class AttractionsPage {
             attractionsNav = $("a#attractions"),
             discountWindowRu = $("button[aria-label='Скрыть меню входа в аккаунт.']"),
             discountWindowUs = $("button[aria-label='Dismiss sign-in info.']"),
-            cookieWindow = $("#onetrust-accept-btn-handler"),
+            cookieWindow = $("#onetrust-reject-all-handler"),
             destinationInput = $("input[data-testid='search-input-field']"),
             searchResult = $("div#attr-search-results-page-main-content");
 
