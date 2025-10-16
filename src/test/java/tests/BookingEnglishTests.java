@@ -56,15 +56,11 @@ public class BookingEnglishTests extends TestBase {
     @Owner("oPalushina")
     @Severity(SeverityLevel.NORMAL)
     void leisureOptionsTest() {
-        String place = faker.getCity();
         mainPage
                 .openPage()
                 .pageReload();
         attractionsPage
                 .openAttractionsPage()
-                .pageReload();
-        attractionsPage
-                .enteringPlace(place)
                 .enteringDate()
                 .checkPrices()
                 .checkPageResults()

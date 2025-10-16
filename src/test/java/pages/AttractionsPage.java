@@ -56,7 +56,6 @@ public class AttractionsPage {
     @Step("Ввести место, где планируется искать досуг")
     public AttractionsPage enteringPlace(String place) {
         destinationInput.setValue(place);
-        sleep(1000);
         searchBar.first().click();
 
         return this;
