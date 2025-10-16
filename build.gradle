@@ -71,9 +71,9 @@ task smoke(type: Test) {
     }
 }
 
-task booking_house(type: Test) {
+task booking(type: Test) {
     useJUnitPlatform {
-        includeTags("booking_house")
+        includeTags("booking")
     }
 }
 

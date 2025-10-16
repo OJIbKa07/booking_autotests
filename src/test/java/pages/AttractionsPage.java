@@ -20,9 +20,6 @@ public class AttractionsPage {
 
     private SelenideElement
             attractionsNav = $("a#attractions"),
-            discountWindowRu = $("button[aria-label='Скрыть меню входа в аккаунт.']"),
-            discountWindowUs = $("button[aria-label='Dismiss sign-in info.']"),
-            cookieWindow = $("#onetrust-reject-all-handler"),
             destinationInput = $("input[data-testid='search-input-field']"),
             searchResult = $("div#attr-search-results-page-main-content");
 
@@ -39,25 +36,12 @@ public class AttractionsPage {
         return this;
     }
 
-    @Step("Закрыть баннеры и куки при наличии")
-    public void pageReload() {
-        sleep(3000);
-        if (discountWindowRu.exists()) {
-            discountWindowRu.click();
-        }
-        if (discountWindowUs.exists()) {
-            discountWindowUs.click();
-        }
-        if (cookieWindow.exists()) {
-            cookieWindow.click();
-        }
-    }
-
     @Step("Ввести место, где планируется искать досуг")
     public AttractionsPage enteringPlace(String place) {
-        destinationInput.setValue(place);
-        searchBar.first().click();
-
+        if (destinationInput.getValue() == null || destinationInput.getValue().isEmpty()) {
+            destinationInput.setValue(place);
+            searchBar.first().click();
+        }
         return this;
     }
 
