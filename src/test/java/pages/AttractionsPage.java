@@ -55,6 +55,7 @@ public class AttractionsPage {
 
     @Step("Ввести место, где планируется искать досуг")
     public AttractionsPage enteringPlace(String place) {
+        sleep(3000);
         destinationInput.clear();
         destinationInput.sendKeys(place);
         sleep(1000);
