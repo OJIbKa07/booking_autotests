@@ -20,6 +20,7 @@ public class BookingEnglishTests extends TestBase {
     AttractionsPage attractionsPage = new AttractionsPage();
     TaxisPage taxisPage = new TaxisPage();
     RandomUtils faker = new RandomUtils();
+    String place, years, whereFrom, whereIs;
 
     @Tags({
             @Tag("booking"),@Tag("smoke")
@@ -29,8 +30,8 @@ public class BookingEnglishTests extends TestBase {
     @Owner("oPalushina")
     @Severity(SeverityLevel.BLOCKER)
     void housingSearchTest() {
-        String place = faker.getCity();
-        String years = faker.getAge();
+        place = faker.getCity();
+        years = faker.getAge();
         mainPage
                 .openPage()
                 .pageReload();
@@ -56,11 +57,13 @@ public class BookingEnglishTests extends TestBase {
     @Owner("oPalushina")
     @Severity(SeverityLevel.NORMAL)
     void leisureOptionsTest() {
+        place = faker.getCity();
         mainPage
                 .openPage()
                 .pageReload();
         attractionsPage
                 .openAttractionsPage()
+                .enteringPlace(place)
                 .enteringDate()
                 .checkPrices()
                 .checkPageResults()
@@ -78,8 +81,8 @@ public class BookingEnglishTests extends TestBase {
     @Owner("oPalushina")
     @Severity(SeverityLevel.CRITICAL)
     void orderingTaxiHumanCheckTest() {
-        String whereFrom = faker.getCity();
-        String whereIs = faker.getCity();
+        whereFrom = faker.getCity();
+        whereIs = faker.getCity();
         int count = faker.getCountPassengers();
         mainPage
                 .openPage()
