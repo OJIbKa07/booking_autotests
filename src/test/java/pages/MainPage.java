@@ -67,7 +67,7 @@ public class MainPage {
                 ),
                 Arguments.of(
                         Language.UK,
-                        List.of("Stays", "Flights", "Flight + Hotel", "Car rental", "Activities", "Airport taxis")
+                        List.of("Stays", "Flights", "Flight + Hotel", "Car rental", "Attractions", "Airport taxis")
                 )
         );
     }
