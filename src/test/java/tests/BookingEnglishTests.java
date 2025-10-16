@@ -49,7 +49,7 @@ public class BookingEnglishTests extends TestBase {
     }
 
     @Tags({
-            @Tag("leisure"),@Tag("smoke")
+            @Tag("booking"),@Tag("smoke")
     })
     @Test
     @DisplayName("Leisure Options Test")
@@ -61,8 +61,8 @@ public class BookingEnglishTests extends TestBase {
                 .openPage()
                 .pageReload();
         attractionsPage
-                .enteringPlace(place)
                 .openAttractionsPage()
+                .enteringPlace(place)
                 .enteringDate()
                 .checkPrices()
                 .checkPageResults()
