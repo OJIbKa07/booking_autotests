@@ -14,10 +14,13 @@ public class TestBase {
     @BeforeAll
     static void setUp() {
         ProjectConfiguration.configure();
+
     }
 
     @BeforeEach
     void addListenerAndRuCookie() {
+        Selenide.clearBrowserCookies();
+        Selenide.clearBrowserLocalStorage();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
