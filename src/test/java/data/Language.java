@@ -1,7 +1,7 @@
 package data;
 
 public enum Language {
-    RU("Русский", "До -15% на аренду автомобилей"),
+    RU("Русский", "До −15% на аренду автомобилей"),
     UK("English (UK)", "Up to 15% off on rental cars");
 
 
