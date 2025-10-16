@@ -19,8 +19,6 @@ public class TestBase {
 
     @BeforeEach
     void addListenerAndRuCookie() {
-        Selenide.clearBrowserCookies();
-        Selenide.clearBrowserLocalStorage();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
