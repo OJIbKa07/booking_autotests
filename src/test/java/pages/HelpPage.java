@@ -58,7 +58,7 @@ public class HelpPage {
 
     @Step("Закрыть баннеры и куки при наличии")
     public void pageReload() {
-        sleep(3000);
+        sleep(10000);
         if (cookieWindow.exists()) {
             cookieWindow.click();
         }

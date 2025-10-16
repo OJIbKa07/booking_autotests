@@ -15,8 +15,6 @@ public class ProjectConfiguration {
         Configuration.baseUrl = System.getProperty("baseUrl", config.baseUrl());
         Configuration.browser = System.getProperty("browser", config.browser());
         Configuration.browserVersion = System.getProperty("browserVersion", config.browserVersion());
-        Configuration.browserSize = System.getProperty("browserSize", config.browserSize());
-        Configuration.pageLoadStrategy = "earlier";
 
         String remoteUrl = System.getProperty("remoteWebDriverUrl", config.remoteWebDriverUrl());
         
