@@ -47,7 +47,8 @@
 <a href="https://telegram.org/" target="_blank">
     <img width="6%" title="Telegram" src="src/images/logo/Telegram.png">
 </a>
-<a href="https://www.atlassian.com/software/jira"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/> 
+<a href="https://www.atlassian.com/software/jira"> 
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/> 
 </a>
 </p>
 
@@ -66,11 +67,13 @@
 
 ### Запуск тестов из терминала
 ```
-./gradlew clean test
+./gradlew clean test -Devn=remote
 ```
 При выполнении данной команды в терминале IDE тесты запустятся удаленно в <code>Selenoid</code>.
 
 <code>clean</code> — удаляет каталог build/ в проекте (все скомпилированные классы, отчёты, кэш тестов, временные файлы);
+
+<code>-Devn</code> — переменная, которая принимает значения <code>local</code> (локальный запуск) и <code>remote</code> (удаленный запук);
 
 <code>test</code> — запускает задачу тестирования Gradle, которая:
 
@@ -78,11 +81,25 @@
 - запускает тесты (JUnit, TestNG и т.д.);
 - формирует отчёты (например, `build/reports/tests/test/index.html`).
 
+Также можно управлять переменными удаленного запуска:
+
+```
+./gradlew clean test clean test -Denv=remote -Dbrowser=${BROWSER} -DbrowserVersion=${BROWSER_VERSION} -DbrowserSize=${BROWSER_SIZE} -DremoteWebDriverUrl=${REMOTE} -DbaseUrl=${URL}
+```
+где
+- <code>Dbrowser</code> - название браузера. Доступны опции chrome/opera/firefox;
+- <code>DbrowserVersion</code> - версия браузера. Для chrome - 127.0 / 128.0; для opera - 108.0 / 109.0; для firefox = 124.0 / 125.0;
+- <code>DbrowserSize</code> - размер окна браузера. До дефолту 1920x1080;
+- <code>DremoteWebDriverUrl</code> - адрес удаленного веб-драйвера;
+- <code>DbaseUrl</code> - базовый урл, на котором будут запускаться автотесты.
+
+
 ### Установленная конфигурация
 
 * Браузер - <code>chrome</code>;
-* Версия браузера - <code>127.0</code>;
-* Расширение окна браузера - <code>1920x1080</code>.
+* Версия браузера - <code>128.0</code>;
+* Расширение окна браузера - <code>1920x1080</code>;
+* Базовый URL - <code>https://www.booking.com</code>.
 
 
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="src/images/logo/Jenkins.svg"> Сборка в Jenkins
@@ -104,9 +121,13 @@
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_testops.png"> Интеграция с Allure Test Ops
+[Allure Test Ops отчет](https://allure.autotests.cloud/project/4948/dashboards)
 
 <p align="center">
-<img title="" src="src/images/screenshot/ResultsTest.png">
+<a href="https://allure.autotests.cloud/project/4948/dashboards" target="_blank">
+    <img title="" src="src/images/screenshot/allure_testops_dashboard.png">
+</a>
+
 </p>
 
 ### <img width="4%" style="vertical-align:middle" title="Telegram" src="src/images/logo/Telegram.png"> Уведомления в Telegram с использованием бота

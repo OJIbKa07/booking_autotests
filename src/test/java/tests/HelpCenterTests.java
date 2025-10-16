@@ -26,7 +26,9 @@ public class HelpCenterTests extends TestBase {
         mainPage
                 .openPage()
                 .pageReload();
-        mainPage.openHelpCenter();
+        mainPage
+                .openHelpCenter()
+                .pageReload();
         helpPage
                 .checkHelpCenterLoaded()
                 .checkFaqBlockVisible()
