@@ -49,7 +49,7 @@ public class BookingEnglishTests extends TestBase {
     }
 
     @Tags({
-            @Tag("booking"),@Tag("smoke")
+            @Tag("leisure"),@Tag("smoke")
     })
     @Test
     @DisplayName("Leisure Options Test")

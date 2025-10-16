@@ -82,3 +82,10 @@ task changeLanguage(type: Test) {
         includeTags("changeLanguage")
     }
 }
+
+
+task leisure(type: Test) {
+    useJUnitPlatform {
+        includeTags("leisure")
+    }
+}
