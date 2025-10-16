@@ -25,7 +25,7 @@ public class MainPage {
             discountWindowRu = $("button[aria-label='Скрыть меню входа в аккаунт.']"),
             discountWindowUk = $("button[aria-label='No quiero iniciar sesión.']"),
             discountWindowUs = $("button[aria-label='Dismiss sign-in info.']"),
-            cookieWindow = $("#onetrust-accept-btn-handler"),
+            cookieWindow = $("#onetrust-reject-all-handler"),
             languageWindow = $( "[data-testid='header-language-picker-trigger']" ),
             languagePicker = $("div#header_language_picker"),
             mainHeading = $("[data-testid='herobanner-title1']"),
