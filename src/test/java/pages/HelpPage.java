@@ -13,7 +13,8 @@ public class HelpPage {
 
     private final SelenideElement
             helpHeader = $("h1"),
-            faqHeader = $("h2");
+            faqHeader = $("h2"),
+            cookieWindow = $("#onetrust-accept-btn-handler");
 
     private final String
             faqHeaderName = "Frequently asked questions",
@@ -53,5 +54,13 @@ public class HelpPage {
         panel = $("[id='" + panelId + "']");
         panel.shouldBe(visible);
         panel.$$("button").shouldHave(sizeGreaterThan(0));
+    }
+
+    @Step("Закрыть баннеры и куки при наличии")
+    public void pageReload() {
+        sleep(3000);
+        if (cookieWindow.exists()) {
+            cookieWindow.click();
+        }
     }
 }

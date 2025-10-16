@@ -27,7 +27,8 @@ public class HelpCenterTests extends TestBase {
                 .openPage()
                 .pageReload();
         mainPage
-                .openHelpCenter()
+                .openHelpCenter();
+        helpPage
                 .pageReload();
         helpPage
                 .checkHelpCenterLoaded()
