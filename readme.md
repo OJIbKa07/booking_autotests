@@ -103,19 +103,19 @@
 
 
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="src/images/logo/Jenkins.svg"> Сборка в Jenkins
-[Сборка в Jenkins](https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/1/)
+[Сборка в Jenkins](https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/48/)
 <p align="center">
     <img title="Jenkins Build" src="src/images/screenshot/jenkinsBuild.png">
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_report.png"> Пример Allure-отчета
-[Allure  отчет](https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/1/allure/)
+[Allure  отчет](https://jenkins.autotests.cloud/job/c36-oPalushina-qa_guru-booking/48/allure/#)
 <p align="center">
     <img title="Allure Overview" src="src/images/screenshot/Allure_Report.png">
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_report.png"> Результат успешного прогона
-
+[Результат выполнения тест-кейсов](https://jenkins.autotests.cloud/job/c36-oPalushina-qa_guru-booking/48/allure/#)
 <p align="center">
 <img title="Allure Overview" src="src/images/screenshot/ResultsTest.png">
 </p>
