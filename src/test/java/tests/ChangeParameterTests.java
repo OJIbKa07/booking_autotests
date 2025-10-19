@@ -1,9 +1,9 @@
 package tests;
 
 import data.Language;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import helpers.allure.annotations.Layer;
+import helpers.allure.annotations.Microservice;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -13,6 +13,13 @@ import pages.MainPage;
 
 import java.util.List;
 
+@Owner("oPalushina")
+@Layer("ui")
+@Microservice("Settings")
+@Tag("ui")
+@Epic("Настройки интерфейса")
+@Feature("Смена параметров отображения (UI)")
+@DisplayName("UI: Тесты изменения параметров интерфейса")
 public class ChangeParameterTests extends TestBase {
     MainPage mainPage = new MainPage();
 
@@ -21,9 +28,11 @@ public class ChangeParameterTests extends TestBase {
     })
     @ParameterizedTest
     @MethodSource("pages.MainPage#currencyDataProvider")
-    @DisplayName("Change Currency Test")
     @Owner("oPalushina")
     @Severity(SeverityLevel.MINOR)
+    @Story("Смена валюты отображения цен")
+    @DisplayName("UI: Проверка смены валюты на главной странице")
+    @Description("Открывает главную страницу, меняет валюту в хедере и проверяет корректность отображения символа валюты")
     void changeCurrencyTest(String currencyCode, String expectedSymbol) {
         mainPage
                 .openPage()
@@ -41,9 +50,10 @@ public class ChangeParameterTests extends TestBase {
     })
     @MethodSource("pages.MainPage#successfulLanguageChange")
     @ParameterizedTest
-    @DisplayName("Successful Language Change")
-    @Owner("oPalushina")
+    @Story("Смена языка интерфейса сайта")
+    @DisplayName("UI: Проверка смены языка интерфейса")
     @Severity(SeverityLevel.CRITICAL)
+    @Description("Меняет язык интерфейса через меню выбора языка и проверяет, что заголовки и кнопки отображаются на выбранном языке")
     void successfulLanguageChangeTest(Language language, List<String> expectedButtons) {
         mainPage
                 .openPage()
