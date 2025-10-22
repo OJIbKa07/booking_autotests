@@ -66,7 +66,7 @@
 * Логи браузерной консоли;
 * Видео выполнения автотеста.
 
-[Вернуться к оглавлению⬆️](#оглавление) 
+[Вернуться к оглавлению⬆️](#содержание) 
 
 ## :arrow_forward: Запуск автотестов
 
@@ -86,7 +86,7 @@
 - запускает тесты (JUnit, TestNG и т.д.);
 - формирует отчёты (например, `build/reports/tests/test/index.html`).
 
-[Вернуться к оглавлению⬆️](#оглавление)
+[Вернуться к оглавлению⬆️](#содержание)
 
 ### Удаленный запуск тестов
 
@@ -105,7 +105,7 @@
 - <code>DremoteWebDriverUrl</code> - адрес удаленного веб-драйвера;
 - <code>DbaseUrl</code> - базовый урл, на котором будут запускаться автотесты.
 
-[Вернуться к оглавлению⬆️](#оглавление)
+[Вернуться к оглавлению⬆️](#содержание)
 
 ### Установленная конфигурация
 
@@ -114,14 +114,14 @@
 * Расширение окна браузера - <code>1920x1080</code>;
 * Базовый URL - <code>https://www.booking.com</code>.
 
-[Вернуться к оглавлению⬆️](#оглавление)
+[Вернуться к оглавлению⬆️](#содержание)
 
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="src/images/logo/Jenkins.svg"> [Интеграция с Jenkins](https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/48/)
 <p align="center">
     <img title="Jenkins Build" src="src/images/screenshot/jenkinsBuild.png">
 </p>
 
-[Вернуться к оглавлению⬆️](#оглавление)
+[Вернуться к оглавлению⬆️](#содержание)
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_report.png"> [Интеграция с Allure](https://jenkins.autotests.cloud/job/c36-oPalushina-qa_guru-booking/48/allure/#)
 <p align="center">
@@ -133,7 +133,7 @@
 <img title="Allure Overview" src="src/images/screenshot/ResultsTest.png">
 </p>
 
-[Вернуться к оглавлению⬆️](#оглавление)
+[Вернуться к оглавлению⬆️](#содержание)
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_testops.png"> [Интеграция с Allure Test Ops](https://allure.autotests.cloud/project/4948/dashboards)
 
@@ -150,7 +150,7 @@
 </a>
 </p>
 
-[Вернуться к оглавлению⬆️](#оглавление)
+[Вернуться к оглавлению⬆️](#-содержание)
 
 ### <img width="4%" style="vertical-align:middle" title="Telegram" src="src/images/logo/Telegram.png"> Уведомления в Telegram с использованием бота
 
@@ -160,7 +160,7 @@
 <img width="70%" title="Telegram Notifications" src="src/images/screenshot/TelegramNotifications.png">
 </p>
 
-[Вернуться к оглавлению⬆️](#оглавление)
+[Вернуться к оглавлению⬆️](#содержание)
 
 ### <img width="4%" style="vertical-align:middle" title="Selenoid" src="src/images/logo/Selenoid.png"> Видео пример запуска тестов в Selenoid
 
@@ -169,4 +169,4 @@
   <img title="Selenoid Video" src="src/images/screenshot/videoExample.gif">
 </p>
 
-[Вернуться к оглавлению⬆️](#оглавление) 
+[Вернуться к оглавлению⬆️](#содержание) 
