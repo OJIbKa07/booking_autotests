@@ -1,11 +1,15 @@
-# Проект по автоматизации тестовых сценариев для сайта Booking.com
-## :scroll: Содержание:
+# Проект по автоматизации тестовых сценариев для сайта [Booking.com](https://www.booking.com/)
+<a href="https://www.booking.com/" target="_blank">
+    <img width="100%" title="Booking" src="src/images/logo/booking-logo.jpg">
+</a>
+
+## 📜 Содержание:
 
 - [Используемый стек](#computer-используемый-стек)
 - [Запуск автотестов](#arrow_forward-запуск-автотестов)
-- [Сборка в Jenkins](#-сборка-в-jenkins)
-- [Пример Allure-отчета](#-пример-allure-отчета)
-- [Интеграция Allure Testops](#-интеграция-allure-testops)
+- [Интеграция с Jenkins](#-сборка-в-jenkins)
+- [Интеграция с Allure](#-пример-allure-отчета)
+- [Интеграция с Allure Testops](#-интеграция-allure-testops)
 - [Результат успешного прогона](#-результат-успешного-прогона)
 - [Уведомления в Telegram](#-уведомления-в-telegram-с-использованием-бота)
 - [Видео примера запуска тестов в Selenoid](#-видео-пример-запуска-тестов-в-Selenoid)
@@ -62,17 +66,19 @@
 * Логи браузерной консоли;
 * Видео выполнения автотеста.
 
+[Вернуться к оглавлению⬆️](#оглавление) 
+
 ## :arrow_forward: Запуск автотестов
 
-### Запуск тестов из терминала
+### Локальный запуск тестов
 ```
-./gradlew clean test -Devn=remote
+./gradlew clean test -Denv=local
 ```
-При выполнении данной команды в терминале IDE тесты запустятся удаленно в <code>Selenoid</code>.
+При выполнении данной команды в терминале IDE тесты запустятся локально в браузере Chrome.
 
 <code>clean</code> — удаляет каталог build/ в проекте (все скомпилированные классы, отчёты, кэш тестов, временные файлы);
 
-<code>-Devn</code> — переменная, которая принимает значения <code>local</code> (локальный запуск) и <code>remote</code> (удаленный запук);
+<code>-Denv</code> — переменная, которая принимает значения <code>local</code> (локальный запуск) и <code>remote</code> (удаленный запуск);
 
 <code>test</code> — запускает задачу тестирования Gradle, которая:
 
@@ -80,18 +86,26 @@
 - запускает тесты (JUnit, TestNG и т.д.);
 - формирует отчёты (например, `build/reports/tests/test/index.html`).
 
-Также можно управлять переменными удаленного запуска:
+[Вернуться к оглавлению⬆️](#оглавление)
 
+### Удаленный запуск тестов
+
+Запуск с настройками из remote.properties:
+```
+./gradlew clean test clean test -Denv=remote
+```
+Команда для запуска из Jenkins (параметрами можно управлять):
 ```
 ./gradlew clean test clean test -Denv=remote -Dbrowser=${BROWSER} -DbrowserVersion=${BROWSER_VERSION} -DbrowserSize=${BROWSER_SIZE} -DremoteWebDriverUrl=${REMOTE} -DbaseUrl=${URL}
 ```
 где
 - <code>Dbrowser</code> - название браузера. Доступны опции chrome/opera/firefox;
-- <code>DbrowserVersion</code> - версия браузера. Для chrome - 127.0 / 128.0; для opera - 108.0 / 109.0; для firefox = 124.0 / 125.0;
+- <code>DbrowserVersion</code> - версия браузера. Для chrome - 127.0 / 128.0; для firefox = 124.0 / 125.0;
 - <code>DbrowserSize</code> - размер окна браузера. До дефолту 1920x1080;
 - <code>DremoteWebDriverUrl</code> - адрес удаленного веб-драйвера;
 - <code>DbaseUrl</code> - базовый урл, на котором будут запускаться автотесты.
 
+[Вернуться к оглавлению⬆️](#оглавление)
 
 ### Установленная конфигурация
 
@@ -100,34 +114,43 @@
 * Расширение окна браузера - <code>1920x1080</code>;
 * Базовый URL - <code>https://www.booking.com</code>.
 
+[Вернуться к оглавлению⬆️](#оглавление)
 
-## <img width="4%" style="vertical-align:middle" title="Jenkins" src="src/images/logo/Jenkins.svg"> Сборка в Jenkins
-[Сборка в Jenkins](https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/48/)
+## <img width="4%" style="vertical-align:middle" title="Jenkins" src="src/images/logo/Jenkins.svg"> [Интеграция с Jenkins](https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/48/)
 <p align="center">
     <img title="Jenkins Build" src="src/images/screenshot/jenkinsBuild.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_report.png"> Пример Allure-отчета
-[Allure  отчет](https://jenkins.autotests.cloud/job/c36-oPalushina-qa_guru-booking/48/allure/#)
+[Вернуться к оглавлению⬆️](#оглавление)
+
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_report.png"> [Интеграция с Allure](https://jenkins.autotests.cloud/job/c36-oPalushina-qa_guru-booking/48/allure/#)
 <p align="center">
     <img title="Allure Overview" src="src/images/screenshot/Allure_Report.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_report.png"> Результат успешного прогона
-[Результат выполнения тест-кейсов](https://jenkins.autotests.cloud/job/c36-oPalushina-qa_guru-booking/48/allure/#)
+[Результат успешного прогона](https://jenkins.autotests.cloud/job/c36-oPalushina-qa_guru-booking/48/allure/#)
 <p align="center">
 <img title="Allure Overview" src="src/images/screenshot/ResultsTest.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_testops.png"> Интеграция с Allure Test Ops
-[Allure Test Ops отчет](https://allure.autotests.cloud/project/4948/dashboards)
+[Вернуться к оглавлению⬆️](#оглавление)
+
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_testops.png"> [Интеграция с Allure Test Ops](https://allure.autotests.cloud/project/4948/dashboards)
 
 <p align="center">
 <a href="https://allure.autotests.cloud/project/4948/dashboards" target="_blank">
     <img title="" src="src/images/screenshot/allure_testops_dashboard.png">
 </a>
-
 </p>
+
+[Allure Test Ops тест-кейсы](https://allure.autotests.cloud/project/4948/dashboards)
+<p align="center">
+<a href="https://allure.autotests.cloud/project/4948/test-cases?treeId=0" target="_blank">
+    <img title="" src="src/images/screenshot/allure_testops_cases.png">
+</a>
+</p>
+
+[Вернуться к оглавлению⬆️](#оглавление)
 
 ### <img width="4%" style="vertical-align:middle" title="Telegram" src="src/images/logo/Telegram.png"> Уведомления в Telegram с использованием бота
 
@@ -137,9 +160,13 @@
 <img width="70%" title="Telegram Notifications" src="src/images/screenshot/TelegramNotifications.png">
 </p>
 
+[Вернуться к оглавлению⬆️](#оглавление)
+
 ### <img width="4%" style="vertical-align:middle" title="Selenoid" src="src/images/logo/Selenoid.png"> Видео пример запуска тестов в Selenoid
 
 К каждому тесту в отчете прилагается видео прогона.
 <p align="center">
   <img title="Selenoid Video" src="src/images/screenshot/videoExample.gif">
 </p>
+
+[Вернуться к оглавлению⬆️](#оглавление) 
