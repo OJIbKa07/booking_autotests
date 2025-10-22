@@ -6,7 +6,6 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import config.WebConfig;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
-import com.google.common.base.Strings;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -26,13 +25,17 @@ public class TestBase {
         Configuration.browserVersion = System.getProperty("browserVersion", config.browserVersion());
         Configuration.browserSize = config.browserSize();
 
-        String remoteUrl = config.remoteWebDriverUrl();
+        String remoteUrl = System.getProperty("remoteWebDriverUrl", config.remoteWebDriverUrl());
+
+        if (!remoteUrl.startsWith("http://") && !remoteUrl.startsWith("https://")) {
+            remoteUrl = "https://" + remoteUrl;
+        }
 
         String user = System.getProperty("selenoidUser");
         String password = System.getProperty("selenoidPassword");
 
-        if (user != null && password != null && !user.isEmpty() && !password.isEmpty()) {
-            remoteUrl = remoteUrl.replace("https://", String.format("https://%s:%s@", user, password));
+        if (user != null && !user.isEmpty() && password != null && !password.isEmpty()) {
+            remoteUrl = remoteUrl.replaceFirst("://", String.format("://%s:%s@", user, password));
         }
 
         if (remoteUrl != null && !remoteUrl.isEmpty()) {
