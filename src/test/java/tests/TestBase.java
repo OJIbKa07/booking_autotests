@@ -27,9 +27,10 @@ public class TestBase {
         Configuration.browserSize = config.browserSize();
 
         String remoteUrl = config.remoteWebDriverUrl();
+
         String user = System.getProperty("selenoidUser");
         String password = System.getProperty("selenoidPassword");
-        
+
         if (user != null && password != null && !user.isEmpty() && !password.isEmpty()) {
             remoteUrl = remoteUrl.replace("https://", String.format("https://%s:%s@", user, password));
         }
@@ -44,6 +45,8 @@ public class TestBase {
             ));
             Configuration.browserCapabilities = capabilities;
         }
+
+        System.out.println(remoteUrl);
     }
 
     @BeforeEach
