@@ -59,27 +59,6 @@ public class MainPage {
     private String savedCardName;
     private SelenideElement wishlistButton, section;
 
-    static Stream<Arguments> successfulLanguageChange() {
-        return Stream.of(
-                Arguments.of(
-                        Language.RU,
-                        List.of("Жилье", "Авиабилеты", "Авиабилеты + отели", "Аренда автомобилей", "Досуг", "Такси от/до аэропорта")
-                ),
-                Arguments.of(
-                        Language.UK,
-                        List.of("Stays", "Flights", "Flight + Hotel", "Car rental", "Attractions", "Airport taxis")
-                )
-        );
-    }
-
-    static Stream<Arguments> currencyDataProvider() {
-        return Stream.of(
-                Arguments.of("USD", "$"),
-                Arguments.of("EUR", "€"),
-                Arguments.of("KZT", "KZT")
-        );
-    }
-
     @Step("Выбрать язык {language}")
     public MainPage languageSelection(Language language) {
         languageCollection.findBy(text(language.country)).click();

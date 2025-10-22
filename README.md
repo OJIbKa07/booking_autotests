@@ -1,6 +1,6 @@
 # Проект по автоматизации тестовых сценариев для сайта [Booking.com](https://www.booking.com/)
 <a href="https://www.booking.com/" target="_blank">
-    <img width="100%" title="Booking" src="src/images/logo/booking-logo.jpg">
+    <img width="100%" title="Booking" src="images/logo/booking-logo.jpg">
 </a>
 
 <h2 id="содержание">📜 Содержание:</h2>
@@ -19,40 +19,37 @@
 
 <p align="center">
 <a href="https://www.jetbrains.com/idea/" target="_blank">
-    <img width="6%" title="IntelliJ IDEA" src="src/images/logo/Intelij_IDEA.svg">
+    <img width="6%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg">
 </a>
 <a href="https://www.java.com/" target="_blank">
-    <img width="6%" title="Java" src="src/images/logo/Java.svg">
+    <img width="6%" title="Java" src="images/logo/Java.svg">
 </a>
 <a href="https://selenide.org/" target="_blank">
-    <img width="5%" title="Selenide" src="src/images/logo/Selenide.png">
+    <img width="5%" title="Selenide" src="images/logo/Selenide.png">
 </a>
 <a href="https://selenoid.autotests.cloud/" target="_blank">
-    <img width="6%" title="Selenoid" src="src/images/logo/Selenoid.png">
+    <img width="6%" title="Selenoid" src="images/logo/Selenoid.png">
 </a>
 <a href="https://allurereport.org/" target="_blank">
-    <img width="6%" title="Allure Report" src="src/images/logo/allure_report.png">
+    <img width="6%" title="Allure Report" src="images/logo/allure_report.png">
 </a>
 <a href="https://qameta.io/" target="_blank">
-    <img width="6%" title="Allure Test Ops" src="src/images/logo/allure_testops.png">
+    <img width="6%" title="Allure Test Ops" src="images/logo/allure_testops.png">
 </a>
 <a href="https://gradle.org/" target="_blank">
-    <img width="6%" title="Gradle" src="src/images/logo/Gradle.svg">
+    <img width="6%" title="Gradle" src="images/logo/Gradle.svg">
 </a>
 <a href="https://junit.org/junit5/" target="_blank">
-    <img width="6%" title="JUnit5" src="src/images/logo/JUnit5.svg">
+    <img width="6%" title="JUnit5" src="images/logo/JUnit5.svg">
 </a>
 <a href="https://github.com/" target="_blank">
-    <img width="6%" title="GitHub" src="src/images/logo/Github.svg">
+    <img width="6%" title="GitHub" src="images/logo/Github.svg">
 </a>
 <a href="https://www.jenkins.io/" target="_blank">
-    <img width="6%" title="Jenkins" src="src/images/logo/Jenkins.svg">
+    <img width="6%" title="Jenkins" src="images/logo/Jenkins.svg">
 </a>
 <a href="https://telegram.org/" target="_blank">
-    <img width="6%" title="Telegram" src="src/images/logo/Telegram.png">
-</a>
-<a href="https://www.atlassian.com/software/jira"> 
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/> 
+    <img width="6%" title="Telegram" src="images/logo/Telegram.png">
 </a>
 </p>
 
@@ -118,61 +115,61 @@
 [Вернуться к оглавлению⬆️](#содержание)
 
 <a id="интеграция-с-jenkins"></a>
-## <img width="4%" style="vertical-align:middle" title="Jenkins" src="src/images/logo/Jenkins.svg"> [Интеграция с Jenkins](https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/48/)
+## <img width="4%" style="vertical-align:middle" title="Jenkins" src="images/logo/Jenkins.svg"> [Интеграция с Jenkins](https://jenkins.autotests.cloud/view/QA.GURU%20students/job/c36-oPalushina-qa_guru-booking/48/)
 <p align="center">
-    <img title="Jenkins Build" src="src/images/screenshot/jenkinsBuild.png">
+    <img title="Jenkins Build" src="images/screenshot/jenkinsBuild.png">
 </p>
 
 [Вернуться к оглавлению⬆️](#содержание)
 
 <a id="интеграция-с-allure"></a>
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_report.png"> [Интеграция с Allure](https://jenkins.autotests.cloud/job/c36-oPalushina-qa_guru-booking/48/allure/#)
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="images/logo/allure_report.png"> [Интеграция с Allure](https://jenkins.autotests.cloud/job/c36-oPalushina-qa_guru-booking/48/allure/#)
 <p align="center">
-    <img title="Allure Overview" src="src/images/screenshot/Allure_Report.png">
+    <img title="Allure Overview" src="images/screenshot/Allure_Report.png">
 </p>
 
 [Результат успешного прогона](https://jenkins.autotests.cloud/job/c36-oPalushina-qa_guru-booking/48/allure/#)
 <p align="center">
-<img title="Allure Overview" src="src/images/screenshot/ResultsTest.png">
+<img title="Allure Overview" src="images/screenshot/ResultsTest.png">
 </p>
 
 [Вернуться к оглавлению⬆️](#содержание)
 
 <a id="интеграция-с-allure-testops"></a>
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="src/images/logo/allure_testops.png"> [Интеграция с Allure Test Ops](https://allure.autotests.cloud/project/4948/dashboards)
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="images/logo/allure_testops.png"> [Интеграция с Allure Test Ops](https://allure.autotests.cloud/project/4948/dashboards)
 
 <p align="center">
 <a href="https://allure.autotests.cloud/project/4948/dashboards" target="_blank">
-    <img title="" src="src/images/screenshot/allure_testops_dashboard.png">
+    <img title="" src="images/screenshot/allure_testops_dashboard.png">
 </a>
 </p>
 
 [Allure Test Ops тест-кейсы](https://allure.autotests.cloud/project/4948/dashboards)
 <p align="center">
 <a href="https://allure.autotests.cloud/project/4948/test-cases?treeId=0" target="_blank">
-    <img title="" src="src/images/screenshot/allure_testops_cases.png">
+    <img title="" src="images/screenshot/allure_testops_cases.png">
 </a>
 </p>
 
 [Вернуться к оглавлению⬆️](#-содержание)
 
 <a id="уведомления-telegram"></a>
-### <img width="4%" style="vertical-align:middle" title="Telegram" src="src/images/logo/Telegram.png"> Уведомления в Telegram с использованием бота
+### <img width="4%" style="vertical-align:middle" title="Telegram" src="images/logo/Telegram.png"> Уведомления в Telegram с использованием бота
 
 После завершения сборки специальный бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с результатом.
 
 <p align="center">
-<img width="70%" title="Telegram Notifications" src="src/images/screenshot/TelegramNotifications.png">
+<img width="70%" title="Telegram Notifications" src="images/screenshot/TelegramNotifications.png">
 </p>
 
 [Вернуться к оглавлению⬆️](#содержание)
 
 <a id="видео-пример"></a>
-### <img width="4%" style="vertical-align:middle" title="Selenoid" src="src/images/logo/Selenoid.png"> Видео пример запуска тестов в Selenoid
+### <img width="4%" style="vertical-align:middle" title="Selenoid" src="images/logo/Selenoid.png"> Видео пример запуска тестов в Selenoid
 
 К каждому тесту в отчете прилагается видео прогона.
 <p align="center">
-  <img title="Selenoid Video" src="src/images/screenshot/videoExample.gif">
+  <img title="Selenoid Video" src="images/screenshot/videoExample.gif">
 </p>
 
 [Вернуться к оглавлению⬆️](#содержание) 

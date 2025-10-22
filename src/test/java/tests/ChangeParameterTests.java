@@ -8,10 +8,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import pages.MainPage;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 @Owner("oPalushina")
 @Layer("ui")
@@ -23,11 +25,32 @@ import java.util.List;
 public class ChangeParameterTests extends TestBase {
     MainPage mainPage = new MainPage();
 
+    static Stream<Arguments> successfulLanguageChange() {
+        return Stream.of(
+                Arguments.of(
+                        Language.RU,
+                        List.of("Жилье", "Авиабилеты", "Авиабилеты + отели", "Аренда автомобилей", "Досуг", "Такси от/до аэропорта")
+                ),
+                Arguments.of(
+                        Language.UK,
+                        List.of("Stays", "Flights", "Flight + Hotel", "Car rental", "Attractions", "Airport taxis")
+                )
+        );
+    }
+
+    static Stream<Arguments> currencyDataProvider() {
+        return Stream.of(
+                Arguments.of("USD", "$"),
+                Arguments.of("EUR", "€"),
+                Arguments.of("KZT", "KZT")
+        );
+    }
+
     @Tags({
             @Tag("change"),@Tag("smoke")
     })
     @ParameterizedTest
-    @MethodSource("pages.MainPage#currencyDataProvider")
+    @MethodSource("currencyDataProvider")
     @Owner("oPalushina")
     @Severity(SeverityLevel.MINOR)
     @Story("Смена валюты отображения цен")
@@ -48,7 +71,7 @@ public class ChangeParameterTests extends TestBase {
     @Tags({
             @Tag("changeLanguage"),@Tag("smoke")
     })
-    @MethodSource("pages.MainPage#successfulLanguageChange")
+    @MethodSource("successfulLanguageChange")
     @ParameterizedTest
     @Story("Смена языка интерфейса сайта")
     @DisplayName("UI: Проверка смены языка интерфейса")

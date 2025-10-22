@@ -29,6 +29,13 @@ public class AttractionsPage {
             cardCollection = $$("[data-testid*='card']"),
             labelCollection = $$("label");
 
+    private String
+            headerPrice = "Lowest price",
+            buttonName = "Search";
+
+    private final ElementsCollection activityCards = $$("[data-testid='activity-card']");
+    private final By priceSelector = By.cssSelector("[data-testid='price-and-discounted-price']");
+
     @Step("Открыть раздел выбора досуга")
     public AttractionsPage openAttractionsPage() {
         attractionsNav.click();
@@ -54,7 +61,7 @@ public class AttractionsPage {
 
     @Step("Поиск результатов")
     public AttractionsPage checkPrices() {
-        buttonCollection.findBy(text("Search")).click();
+        buttonCollection.findBy(text(buttonName)).click();
 
         return this;
     }
@@ -75,18 +82,18 @@ public class AttractionsPage {
 
     @Step("Отсортировать цены по возрастанию")
     public AttractionsPage clickLowPrices() {
-        labelCollection.findBy(text("Lowest price")).click();
+        labelCollection.findBy(text(headerPrice)).click();
 
         return this;
     }
 
     @Step("Проверить, что цены отсортированы по возрастанию")
     public AttractionsPage checkSort() {
-        List<Integer> prices = $$("[data-testid='activity-card']")
+        List<Integer> prices = activityCards
                 .filter(Condition.visible)
                 .stream()
                 .map(card -> {
-                    String priceText = card.$(By.cssSelector("[data-testid='price-and-discounted-price']")).getText();
+                    String priceText = card.$(priceSelector).getText();
                     return extractPrice(priceText);
                 })
                 .filter(p -> p > 0)
