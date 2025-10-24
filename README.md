@@ -144,10 +144,17 @@
 </a>
 </p>
 
-[Allure Test Ops тест-кейсы](https://allure.autotests.cloud/project/4948/dashboards)
+Автоматизированные тест=кейсы
 <p align="center">
-<a href="https://allure.autotests.cloud/project/4948/test-cases?treeId=0" target="_blank">
-    <img title="" src="images/screenshot/allure_testops_cases.png">
+<a href="https://allure.autotests.cloud/project/4948/test-cases/40474?treeId=0&search=W3siaWQiOiJhdXRvbWF0ZWQiLCJ0eXBlIjoiYm9vbGVhbiIsInZhbHVlIjp0cnVlfV0%3D" target="_blank">
+    <img title="" src="images/screenshot/allure_testops_auto_cases.png">
+</a>
+</p>
+
+Ручные тест=кейсы
+<p align="center">
+<a href="https://allure.autotests.cloud/project/4948/test-cases/40474?treeId=0&search=W3siaWQiOiJhdXRvbWF0ZWQiLCJ0eXBlIjoiYm9vbGVhbiIsInZhbHVlIjpmYWxzZX1d" target="_blank">
+    <img title="" src="images/screenshot/allure_testops_manual_cases.png">
 </a>
 </p>
 
