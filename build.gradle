@@ -89,3 +89,9 @@ task leisure(type: Test) {
         includeTags("leisure")
     }
 }
+
+task taxi(type: Test) {
+    useJUnitPlatform {
+        includeTags("taxi")
+    }
+}

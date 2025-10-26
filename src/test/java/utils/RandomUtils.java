@@ -26,6 +26,12 @@ public class RandomUtils {
         return age + (age == 1 ? " year old" : " years old");
     }
 
+    public String getTime() {
+        int hour = faker.number().numberBetween(0, 23);
+        int minute = faker.number().numberBetween(0, 11) * 5;
+        return String.format("%02d:%02d", hour, minute);
+    }
+
     public int getCountPassengers() {
         return faker.number().numberBetween(1, 11);
     }

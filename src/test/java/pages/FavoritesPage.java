@@ -13,18 +13,10 @@ public class FavoritesPage {
     private ElementsCollection wishlistCollection = $$("div");
 
     @Step("Проверяем, что элемент добавился в избранное")
-    public FavoritesPage checkAddToFavorites() {
+    public FavoritesPage checkAddToFavorites(String expectedCardName) {
         wishlistCollection.findBy(text(expectedCardName))
                 .shouldBe(visible);
 
         return this;
     }
-
-    @Step("Сохраняем название элемента, которого добавили в избранное")
-    public FavoritesPage setExpectedCardName(String cardName) {
-        this.expectedCardName = cardName;
-
-        return this;
-    }
-
 }

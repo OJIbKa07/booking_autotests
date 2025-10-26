@@ -39,8 +39,6 @@ public class FavoritesTests extends TestBase {
                 .findFavoritesAndSave()
                 .addToFavorites()
                 .goToFavorites();
-        favoritesPage
-                .setExpectedCardName(mainPage.getSavedCardName())
-                .checkAddToFavorites();
+        favoritesPage.checkAddToFavorites(mainPage.getSavedCardName());
     }
 }

@@ -83,7 +83,7 @@ public class BookingEnglishTests extends TestBase {
     }
 
     @Tags({
-            @Tag("booking"),@Tag("smoke")
+            @Tag("booking"),@Tag("smoke"),@Tag("taxi")
     })
     @Test
     @DisplayName("UI: Проверка заказа такси и проверки на бота")

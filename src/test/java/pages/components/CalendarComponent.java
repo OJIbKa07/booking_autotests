@@ -3,6 +3,7 @@ package pages.components;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import utils.RandomUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -36,8 +37,13 @@ public class CalendarComponent {
             hoursOption = $("[name='hours']"),
             minutesOption = $("[name='minutes']"),
             taxiDateStart = $("button[data-testid='taxi-date-time-picker-form-element__button-oneway']"),
-            taxiDateEnd = $("button[data-testid='taxi-date-time-picker-form-element__button-return']");
+            taxiDateEnd = $("button[data-testid='taxi-date-time-picker-form-element__button-return']"),
+            buttonPrevMonth = $("[aria-label='Previous month']");
 
+    RandomUtils faker = new RandomUtils();
+
+    private String startTime, endTime;
+    private String[] startParts, endParts;
 
     @Step("Открыть календарь")
     public void openCalendar() {
@@ -60,13 +66,27 @@ public class CalendarComponent {
 
     @Step("Присвоить дату и время")
     public void setDateAndTime() {
+        startTime = faker.getTime();
+        endTime = faker.getTime();
+
+        startParts = startTime.split(":");
+        endParts = endTime.split(":");
+
         taxiDateStart.click();
+        if (!dateStartTaxi.is(Condition.visible)) {
+            buttonPrevMonth.click();
+        }
         dateStartTaxi.shouldBe(Condition.visible).click();
-        hoursOption.selectOption("09");
-        minutesOption.selectOption("15");
+        hoursOption.selectOption(startParts[0]);
+        minutesOption.selectOption(startParts[1]);
+
         taxiDateEnd.click();
+        taxiDateStart.click();
+        if (!dateStartTaxi.is(Condition.visible)) {
+            buttonPrevMonth.click();
+        }
         dateEndTaxi.shouldBe(Condition.visible).click();
-        hoursOption.selectOption("15");
-        minutesOption.selectOption("10");
+        hoursOption.selectOption(endParts[0]);
+        minutesOption.selectOption(endParts[1]);
     }
 }
