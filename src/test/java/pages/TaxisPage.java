@@ -23,7 +23,6 @@ public class TaxisPage {
             countPassengers = $("[name='passengers']"),
             captchaContainer = $("#captcha-container");
 
-
     private ElementsCollection
             whereFromCollection = $$("[data-testid='taxi-autocomplete-search-drop-down__container-pickup']"),
             whereCollection = $$("[data-testid='taxi-autocomplete-search-drop-down__container-dropoff']"),

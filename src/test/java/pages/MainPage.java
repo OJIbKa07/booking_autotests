@@ -5,17 +5,16 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import data.Language;
 import io.qameta.allure.Step;
-import org.junit.jupiter.params.provider.Arguments;
-
 
 import java.util.List;
-import java.util.stream.Stream;
 
 import pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 
 public class MainPage {
@@ -38,26 +37,22 @@ public class MainPage {
             searchResult = $("[data-testid='property-card']"),
             currencyWindow = $("button[data-testid='header-currency-picker-trigger']"),
             helpCenterLink = $("[data-testid='header-help-center']"),
-            popupLink = $("div[data-testid='wishlist-popover-content'] a[aria-label='Saved to: My next trip']");
+            popupLink = $("div[data-testid='wishlist-popover-content'] a[aria-label='Saved to: My next trip']"),
+            subsectionDealsWeekend = $("div[aria-label='Deals for the weekend']"),
+            firstH3InDeals = subsectionDealsWeekend.$("h3"),
+            firstWishlistButtonInDeals = subsectionDealsWeekend.$$("[data-testid='wishlist-button']").first();
     private ElementsCollection
             languageCollection = $$("#header_language_picker span"),
             navButtons = $$("[data-testid='header-xpb'] a"),
             buttonCollection = $$("button"),
             currencyCollection = $$("button[data-testid='selection-item']"),
             divCollection = $$("div"),
-            divHouseCollection = $$("div.e7addce19e.f546354b44"),
-            sections = $$("div[data-testid='component-tracker']"),
-            subsectionDealsWeekend = $$("ul[aria-label='Deals for the weekend'] li");
+            divHouseCollection = $$("div.e7addce19e.f546354b44");
     private final String
             buttonSearchName = "Search",
             headerHome = "Homes guests love",
-            trevelersCount = "1 adult · 1 child · Pets · 1 room",
-            sectionName = "Deals for the weekend",
-            wishlistButtonLocator = "button[data-testid='wishlist-button']",
-            cardTitleLocator = "h3";
-    private SelenideElement savedCard,savedCardNameTag;
+            trevelersCount = "1 adult · 1 child · Pets · 1 room";
     private String savedCardName;
-    private SelenideElement wishlistButton, section;
 
     @Step("Выбрать язык {language}")
     public MainPage languageSelection(Language language) {
@@ -215,20 +210,15 @@ public class MainPage {
 
     @Step("Скроллим до блока с текстом: {sectionName}")
     public MainPage scrollToDealsForWeekends() {
-        section = sections.findBy(Condition.text(sectionName));
-
-        section.scrollIntoView(true).shouldBe(visible);
+        subsectionDealsWeekend.scrollIntoView(true).shouldBe(visible);
 
         return this;
     }
 
     @Step("Находим первую карточку для добавления в избранное")
     public MainPage findFavoritesAndSave() {
-        savedCard = subsectionDealsWeekend.first();
-
-        savedCardNameTag = savedCard.$(cardTitleLocator);
-        savedCardName = savedCardNameTag.getText();
-        wishlistButton = savedCard.$(wishlistButtonLocator);
+        firstH3InDeals.shouldBe(visible);
+        savedCardName = firstH3InDeals.getText();
 
         return this;
     }
@@ -236,7 +226,7 @@ public class MainPage {
 
     @Step("Добавляем карточку в избранное")
     public MainPage addToFavorites() {
-        wishlistButton.click();
+        firstWishlistButtonInDeals.shouldBe(visible, enabled).click();
 
         return this;
     }
