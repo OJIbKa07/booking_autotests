@@ -27,18 +27,18 @@ public class TestBase {
 
         String remoteUrl = System.getProperty("remoteWebDriverUrl", config.remoteWebDriverUrl());
 
-        if (!remoteUrl.startsWith("http://") && !remoteUrl.startsWith("https://")) {
-            remoteUrl = "https://" + remoteUrl;
-        }
-
-        String user = System.getProperty("selenoidUser");
-        String password = System.getProperty("selenoidPassword");
-
-        if (user != null && !user.isEmpty() && password != null && !password.isEmpty()) {
-            remoteUrl = remoteUrl.replaceFirst("://", String.format("://%s:%s@", user, password));
-        }
-
         if (remoteUrl != null && !remoteUrl.isEmpty()) {
+            if (!remoteUrl.startsWith("http://") && !remoteUrl.startsWith("https://")) {
+                remoteUrl = "https://" + remoteUrl;
+            }
+
+            String user = System.getProperty("selenoidUser");
+            String password = System.getProperty("selenoidPassword");
+
+            if (user != null && !user.isEmpty() && password != null && !password.isEmpty()) {
+                remoteUrl = remoteUrl.replaceFirst("://", String.format("://%s:%s@", user, password));
+            }
+
             Configuration.remote = remoteUrl;
 
             DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -48,8 +48,6 @@ public class TestBase {
             ));
             Configuration.browserCapabilities = capabilities;
         }
-
-        System.out.println(remoteUrl);
     }
 
     @BeforeEach
